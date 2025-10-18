@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   GITHUB_USERNAME: 'iPraBhu', // Replace with your GitHub username
   GITHUB_REPO: 'artiistaa', // Replace with your repository name
   WHATSAPP_NUMBER_INTL: '+919356944708', // Replace with your international WhatsApp number
-  CANONICAL_DOMAIN: 'store.pratik-bhuite.com', // Optional: Replace with your custom domain
+  CANONICAL_DOMAIN: '', // Optional: Replace with your custom domain (leave empty for GitHub Pages)
   // ===============================================================================
   
   // Site metadata

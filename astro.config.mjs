@@ -5,7 +5,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://store.pratik-bhuite.com',
+  site: 'https://iPraBhu.github.io',
+  base: '/artiistaa',
   integrations: [
     mdx(),
     sitemap(),

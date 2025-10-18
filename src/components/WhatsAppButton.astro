@@ -1,5 +1,6 @@
 ---
 import type { ProductFrontmatter } from '@/types';
+import { SITE_CONFIG } from '@/utils/constants';
 
 interface Props {
   product: ProductFrontmatter & { url: string };
@@ -9,13 +10,13 @@ interface Props {
 
 const { product, variant = 'default', className = '' } = Astro.props;
 
-// Generate WhatsApp URL
-const whatsappNumber = '+918830342238'.replace('+', ''); // Replace with actual number
+// Generate WhatsApp URL using site config
+const whatsappNumber = SITE_CONFIG.WHATSAPP_NUMBER_INTL.replace('+', '');
 const message = `Hi! I want to buy:
 ${product.title}
 SKU: ${product.sku}
 Qty: 1
-Link: https://store.pratik-bhuite.com${product.url}`;
+Link: ${SITE_CONFIG.SITE_URL}${product.url}`;
 
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 ---
