@@ -5,8 +5,9 @@ price: 699
 categories: ["Jewelry & Accessories"]
 tags: ["demo", "silver", "oxidized", "jhumka", "earrings", "traditional", "rajasthani", "handcrafted"]
 images:
-  - "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1506629905607-21cd93cd68fc?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=600&fit=crop&q=80"
 short: "Elegant oxidized silver jhumka earrings with intricate traditional motifs"
 in_stock: true
 featured: false

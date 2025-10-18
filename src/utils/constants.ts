@@ -12,8 +12,21 @@ export const SITE_CONFIG = {
   // ===============================================================================
   
   // Site metadata
-  TAGLINE: 'Handcrafted with Love, Made in India',
-  DESCRIPTION: 'Discover beautiful handmade art and craft items, lovingly created by skilled artisans across India. Each piece tells a unique story.',
+  TAGLINE: 'स्वदेशी • Handcrafted by Women • Made in India',
+  DESCRIPTION: 'Celebrating the artistry of Indian women entrepreneurs. Every piece is lovingly handcrafted by skilled women artisans across India, supporting Atmanirbhar Bharat and empowering women-led businesses.',
+  
+  // Brand messaging
+  BRAND_VALUES: {
+    madeInIndia: 'हमारा देश, हमारी कला - Our Country, Our Art',
+    womenOwned: 'Proudly Women-Owned & Supporting Women Artisans',
+    atmanirbhar: 'आत्मनिर्भर भारत - Self-Reliant India',
+    authentic: 'Authentic Indian Craftsmanship with Global Standards',
+    sustainable: 'Eco-friendly • Sustainable • Traditional Techniques'
+  },
+  
+  // Indian elements
+  HINDI_WELCOME: 'नमस्ते',
+  SANSKRIT_MOTTO: 'वसुधैव कुटुम्बकम्', // The world is one family
   PRIMARY_LOCALE: 'en-IN',
   PRIMARY_CURRENCY: 'INR',
   
@@ -48,6 +61,57 @@ export const PRODUCT_CATEGORIES = [
   'Jewelry & Accessories',
   'Art & Paintings',
 ];
+
+// Women empowerment messaging
+export const WOMEN_EMPOWERMENT = {
+  tagline: 'Empowering Women, One Craft at a Time',
+  stats: {
+    womenArtisans: '500+ Women Artisans',
+    womenOwned: '90% Women-Owned Businesses',
+    states: '15+ Indian States',
+    families: '1000+ Families Supported'
+  },
+  values: [
+    'Supporting women entrepreneurs across rural India',
+    'Preserving traditional Indian art forms',
+    'Creating sustainable livelihoods for women',
+    'Promoting financial independence for artisan families'
+  ]
+};
+
+// Atmanirbhar Bharat messaging
+export const ATMANIRBHAR_MESSAGING = {
+  title: 'आत्मनिर्भर भारत - Self-Reliant India',
+  subtitle: 'Every Purchase Strengthens Indian Economy',
+  benefits: [
+    'Reducing dependency on imports',
+    'Creating local employment opportunities',
+    'Preserving ancient Indian crafts',
+    'Building a stronger Indian economy'
+  ]
+};
+
+// Indian cultural elements
+export const CULTURAL_ELEMENTS = {
+  patterns: {
+    mandala: '🔮',
+    lotus: '🪷', 
+    paisley: '🌿',
+    rangoli: '🌸'
+  },
+  colors: {
+    saffron: '#FF9933',
+    white: '#FFFFFF', 
+    green: '#138808',
+    navy: '#000080'
+  },
+  symbols: {
+    om: 'ॐ',
+    swastika: '卍',
+    lotus: '🪷',
+    diya: '🪔'
+  }
+};
 
 // Default tags for products
 export const PRODUCT_TAGS = [

@@ -5,8 +5,9 @@ price: 1299
 categories: ["Home Decor"]
 tags: ["demo", "handmade", "brass", "traditional", "decorative", "gift"]
 images:
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1582582621959-48d27397dc69?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&q=80"
 short: "Beautifully crafted brass elephant figurine with intricate detailing"
 in_stock: true
 featured: true

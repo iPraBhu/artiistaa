@@ -7,9 +7,9 @@ currency: "INR"
 categories: ["Home Decor", "Metalwork"]
 tags: ["brass", "bowl-set", "decorative", "handcrafted", "traditional", "serving"]
 images:
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop&auto=format&q=80"
-  - "https://images.unsplash.com/photo-1544306094-e2dcbd808976?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1582582621959-48d27397dc69?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1544306094-e2dcbd808976?w=600&h=600&fit=crop&q=80"
 short: "Set of three handcrafted brass bowls with intricate engravings, perfect for serving and home decoration."
 in_stock: true
 featured: false

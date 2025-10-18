@@ -5,8 +5,9 @@ price: 799
 categories: ["Home Decor"]
 tags: ["demo", "bamboo", "wind-chime", "eco-friendly", "coconut-shell", "sustainable", "garden-decor", "meditation"]
 images:
-  - "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&q=80"
 short: "Eco-friendly bamboo wind chime featuring coconut shell accents and soothing tones"
 in_stock: true
 featured: false

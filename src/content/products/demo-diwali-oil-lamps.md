@@ -5,8 +5,9 @@ price: 549
 categories: ["Festive Decor", "Pottery & Ceramics"]
 tags: ["demo", "terracotta", "diwali", "festive", "handmade", "traditional", "oil-lamp", "eco-friendly"]
 images:
-  - "https://images.unsplash.com/photo-1604608672516-1b913ff2e952?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1604608672516-1b913ff2e952?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1582582621959-48d27397dc69?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=600&fit=crop&q=80"
 short: "Set of 12 handcrafted terracotta oil lamps perfect for Diwali celebrations"
 in_stock: true
 featured: true

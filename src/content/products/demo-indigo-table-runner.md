@@ -5,8 +5,9 @@ price: 899
 categories: ["Textiles & Fabrics", "Home Decor"]
 tags: ["demo", "handwoven", "block-print", "indigo", "cotton", "eco-friendly", "table-decor"]
 images:
-  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop&q=80"
 short: "Beautiful handwoven cotton table runner with traditional indigo block print"
 in_stock: true
 featured: false

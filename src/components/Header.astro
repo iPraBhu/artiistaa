@@ -5,15 +5,31 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/95 dark:border-neutral-700">
+  <!-- Indian flag color accent -->
+  <div class="h-1 bg-gradient-to-r from-saffron-500 via-white to-emerald-500"></div>
+  
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center space-x-2 text-xl font-serif font-bold text-primary-600 hover:text-primary-700 transition-colors">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
-          </svg>
-          <span>{SITE_CONFIG.STORE_NAME}</span>
+        <a href="/" class="flex items-center space-x-3 text-xl font-decorative font-bold hover:scale-105 transition-transform">
+          <!-- Indian-inspired logo -->
+          <div class="relative">
+            <svg class="w-10 h-10 text-saffron-600" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-xs text-white font-bold">ॐ</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-saffron-600 hover:text-saffron-700 transition-colors leading-tight">
+              {SITE_CONFIG.STORE_NAME}
+            </span>
+            <span class="text-xs text-emerald-600 font-hindi leading-none">
+              स्वदेशी • Made in India
+            </span>
+          </div>
         </a>
       </div>
 
@@ -24,29 +40,44 @@ const currentPath = Astro.url.pathname;
             <div class="relative group">
               <a 
                 href={item.href} 
-                class={`text-sm font-medium transition-colors hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-md px-2 py-1 ${
+                class={`text-sm font-medium transition-all duration-200 hover:text-saffron-600 focus:outline-none focus:ring-2 focus:ring-saffron-500 focus:ring-offset-2 rounded-md px-3 py-2 relative group ${
                   currentPath === item.href 
-                    ? 'text-primary-600 border-b-2 border-primary-600' 
+                    ? 'text-saffron-600' 
                     : 'text-neutral-700 dark:text-neutral-300'
                 }`}
               >
                 {item.name}
                 {item.dropdown && (
-                  <svg class="ml-1 w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="ml-1 w-4 h-4 inline-block transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
+                )}
+                
+                <!-- Active indicator -->
+                {currentPath === item.href && (
+                  <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-saffron-500 to-emerald-500 rounded-full"></div>
                 )}
               </a>
               
               {/* Categories Dropdown */}
               {item.dropdown && (
-                <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-neutral-800 rounded-xl shadow-lg border border-neutral-200 dark:border-neutral-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div class="py-2">
-                    <a href="/shop" class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:text-primary-600">All Products</a>
-                    <a href="/category/festive-decor" class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:text-primary-600">Festive Decor</a>
-                    <a href="/category/home-decor" class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:text-primary-600">Home Decor</a>
-                    <a href="/category/pottery-ceramics" class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:text-primary-600">Pottery & Ceramics</a>
-                    <a href="/category/textiles-fabrics" class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:text-primary-600">Textiles & Fabrics</a>
+                <div class="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-md dark:bg-neutral-800/95 rounded-2xl shadow-xl border border-saffron-100 dark:border-neutral-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div class="py-3">
+                    <a href="/shop" class="block px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-saffron-50 dark:hover:bg-neutral-700 hover:text-saffron-600 transition-colors rounded-xl mx-2">
+                      <span class="mr-2">🛍️</span> All Products
+                    </a>
+                    <a href="/category/festive-decor" class="block px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-saffron-50 dark:hover:bg-neutral-700 hover:text-saffron-600 transition-colors rounded-xl mx-2">
+                      <span class="mr-2">🪔</span> Festive Decor
+                    </a>
+                    <a href="/category/home-decor" class="block px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-saffron-50 dark:hover:bg-neutral-700 hover:text-saffron-600 transition-colors rounded-xl mx-2">
+                      <span class="mr-2">🏺</span> Home Decor
+                    </a>
+                    <a href="/category/pottery-ceramics" class="block px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-saffron-50 dark:hover:bg-neutral-700 hover:text-saffron-600 transition-colors rounded-xl mx-2">
+                      <span class="mr-2">🏺</span> Pottery & Ceramics
+                    </a>
+                    <a href="/category/textiles-fabrics" class="block px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-saffron-50 dark:hover:bg-neutral-700 hover:text-saffron-600 transition-colors rounded-xl mx-2">
+                      <span class="mr-2">🧵</span> Textiles & Fabrics
+                    </a>
                   </div>
                 </div>
               )}
@@ -60,11 +91,11 @@ const currentPath = Astro.url.pathname;
         <div class="relative">
           <input 
             type="search" 
-            placeholder="Search products..." 
-            class="w-full px-4 py-2 pl-10 pr-4 text-sm border border-neutral-300 dark:border-neutral-600 rounded-full bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            placeholder="Search Indian crafts..." 
+            class="w-full px-4 py-2 pl-10 pr-4 text-sm border-2 border-saffron-200 dark:border-neutral-600 rounded-full bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-saffron-500 focus:border-saffron-400 transition-all"
             id="desktop-search"
           />
-          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-saffron-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>

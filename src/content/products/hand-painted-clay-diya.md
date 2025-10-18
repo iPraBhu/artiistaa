@@ -7,9 +7,9 @@ currency: "INR"
 categories: ["Festive Decor"]
 tags: ["diya", "handmade", "painted", "eco-friendly", "traditional", "festival"]
 images:
-  - "https://images.unsplash.com/photo-1604608672516-1b913ff2e952?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1604608672516-1b913ff2e952?w=800&h=800&fit=crop&auto=format&q=80"
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1582582621959-48d27397dc69?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=600&fit=crop&q=80"
 short: "Beautiful hand-painted earthen diya with intricate floral patterns, perfect for festivals and home decoration."
 in_stock: true
 featured: true

@@ -7,9 +7,9 @@ currency: "INR"
 categories: ["Home Decor", "Textiles & Fabrics"]
 tags: ["handwoven", "cotton", "table-runner", "home-decor", "traditional", "sustainable"]
 images:
-  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop&auto=format&q=80"
-  - "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop&q=80"
 short: "Elegant handwoven cotton table runner with traditional block print patterns, perfect for dining room decoration."
 in_stock: true
 featured: true

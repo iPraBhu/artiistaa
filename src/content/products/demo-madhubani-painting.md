@@ -5,8 +5,9 @@ price: 2499
 categories: ["Art & Paintings"]
 tags: ["demo", "madhubani", "painting", "handmade-paper", "traditional-art", "bihar", "folk-art", "gift"]
 images:
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop"
-  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop&auto=format&q=80"
+  - "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=800&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&q=80"
+  - "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop&q=80"
 short: "Authentic Madhubani painting featuring traditional motifs on handmade paper"
 in_stock: true
 featured: false

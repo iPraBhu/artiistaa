@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ProductCard from '@/components/ProductCard.astro';
 import SearchBar from '@/components/SearchBar.astro';
-import { SITE_CONFIG } from '@/utils/constants';
+import { SITE_CONFIG, WOMEN_EMPOWERMENT, ATMANIRBHAR_MESSAGING, CULTURAL_ELEMENTS } from '@/utils/constants';
 import { generateSEO } from '@/utils/helpers';
 import { getCollection } from 'astro:content';
 
@@ -30,7 +30,7 @@ if (featuredProducts.length === 0) {
 
 // SEO data
 const seo = generateSEO({
-  title: `${SITE_CONFIG.STORE_NAME} - ${SITE_CONFIG.TAGLINE}`,
+  title: `${SITE_CONFIG.STORE_NAME} - ${SITE_CONFIG.BRAND_VALUES.womenOwned} | ${SITE_CONFIG.BRAND_VALUES.madeInIndia}`,
   description: SITE_CONFIG.DESCRIPTION,
   type: 'website',
 });
@@ -42,77 +42,193 @@ const categories = [
     href: '/category/festive-decor',
     icon: '🪔',
     description: 'Traditional diyas, rangoli, and festive items',
+    hindi: 'त्योहारी सजावट',
   },
   {
     name: 'Home Decor',
     href: '/category/home-decor',
     icon: '🏺',
     description: 'Beautiful handmade items for your home',
+    hindi: 'घर की सजावट',
   },
   {
     name: 'Pottery & Ceramics',
     href: '/category/pottery-ceramics',
     icon: '🏺',
     description: 'Handcrafted pottery and ceramic pieces',
+    hindi: 'मिट्टी के बर्तन',
   },
   {
     name: 'Textiles & Fabrics',
     href: '/category/textiles-fabrics',
     icon: '🧵',
     description: 'Traditional fabrics and textile art',
+    hindi: 'वस्त्र और कपड़े',
   },
 ];
 ---
 
 <BaseLayout seo={seo}>
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-primary-900/10 dark:via-neutral-900 dark:to-accent-900/10">
-    <div class="absolute inset-0 bg-texture opacity-30"></div>
+  <section class="relative overflow-hidden bg-gradient-to-br from-saffron-50 via-white to-emerald-50 dark:from-saffron-900/10 dark:via-neutral-900 dark:to-emerald-900/10">
+    <!-- Indian pattern overlay -->
+    <div class="absolute inset-0 bg-mandala opacity-20"></div>
+    <div class="absolute inset-0 bg-paisley opacity-10"></div>
+    
+    <!-- Decorative Indian flag colors accent -->
+    <div class="absolute top-0 left-0 w-full h-2 bg-indian-flag"></div>
+    
     <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-      <div class="max-w-4xl mx-auto text-center">
-        <!-- Main Heading -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Welcome to <span class="text-primary-600">{SITE_CONFIG.STORE_NAME}</span>
+      <div class="max-w-6xl mx-auto">
+        <!-- Welcome in Hindi -->
+        <div class="text-center mb-6">
+          <p class="text-3xl sm:text-4xl font-hindi text-saffron-600 mb-2">{SITE_CONFIG.HINDI_WELCOME}</p>
+          <p class="text-sm text-emerald-700 font-hindi">{SITE_CONFIG.SANSKRIT_MOTTO}</p>
+        </div>
+        
+        <!-- Main Heading with Indian styling -->
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-decorative font-bold text-center mb-8">
+          <span class="block text-neutral-900 dark:text-neutral-100">Welcome to</span>
+          <span class="block bg-gradient-to-r from-saffron-600 via-terracotta-500 to-emerald-600 bg-clip-text text-transparent">
+            {SITE_CONFIG.STORE_NAME}
+          </span>
         </h1>
         
-        <!-- Tagline -->
-        <p class="text-xl sm:text-2xl text-neutral-600 dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
-          {SITE_CONFIG.TAGLINE}
-        </p>
+        <!-- Brand messaging with emphasis on women empowerment -->
+        <div class="text-center mb-12">
+          <p class="text-xl sm:text-2xl text-neutral-700 dark:text-neutral-300 mb-4 font-medium">
+            {SITE_CONFIG.TAGLINE}
+          </p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-6 max-w-4xl mx-auto leading-relaxed">
+            {SITE_CONFIG.DESCRIPTION}
+          </p>
+          
+          <!-- Women empowerment badges -->
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <span class="inline-flex items-center px-4 py-2 bg-saffron-100 text-saffron-800 rounded-full text-sm font-medium">
+              👩‍🎨 {SITE_CONFIG.BRAND_VALUES.womenOwned}
+            </span>
+            <span class="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium font-hindi">
+              🇮🇳 {SITE_CONFIG.BRAND_VALUES.madeInIndia}
+            </span>
+            <span class="inline-flex items-center px-4 py-2 bg-turmeric-100 text-turmeric-800 rounded-full text-sm font-medium font-hindi">
+              💪 {SITE_CONFIG.BRAND_VALUES.atmanirbhar}
+            </span>
+          </div>
+        </div>
         
-        <!-- Description -->
-        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-          {SITE_CONFIG.DESCRIPTION}
-        </p>
-        
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- Enhanced CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
           <a 
             href="/shop" 
-            class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1"
+            class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-saffron-600 to-saffron-700 hover:from-saffron-700 hover:to-saffron-800 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105"
           >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
             Shop Now
+            <span class="ml-2 group-hover:translate-x-1 transition-transform">🛍️</span>
           </a>
           
           <a 
             href="/about" 
-            class="inline-flex items-center px-8 py-4 border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-semibold rounded-xl transition-all duration-200"
+            class="group inline-flex items-center px-8 py-4 bg-white hover:bg-emerald-50 text-emerald-700 font-semibold rounded-2xl shadow-lg hover:shadow-xl border-2 border-emerald-200 hover:border-emerald-300 transition-all duration-300 transform hover:-translate-y-1"
           >
-            Our Story
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
+            Our Story
+            <span class="ml-2 group-hover:translate-x-1 transition-transform">📖</span>
+          </a>
+        </div>
+        
+        <!-- Statistics highlighting women empowerment -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {Object.entries(WOMEN_EMPOWERMENT.stats).map(([key, stat]) => (
+            <div class="text-center bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-md border border-white/20">
+              <div class="text-2xl sm:text-3xl font-bold text-emerald-700 mb-1">{stat.split(' ')[0]}</div>
+              <div class="text-sm text-neutral-600 font-medium">{stat.split(' ').slice(1).join(' ')}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atmanirbhar Bharat & Women Empowerment Section -->
+  <section class="py-20 bg-gradient-to-r from-emerald-50 via-white to-saffron-50 dark:from-emerald-900/10 dark:via-neutral-900 dark:to-saffron-900/10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-decorative font-bold mb-6">
+            <span class="bg-gradient-to-r from-saffron-600 to-emerald-600 bg-clip-text text-transparent font-hindi">
+              {ATMANIRBHAR_MESSAGING.title}
+            </span>
+          </h2>
+          <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-3xl mx-auto">
+            {ATMANIRBHAR_MESSAGING.subtitle}
+          </p>
+        </div>
+        
+        <!-- Two Column Layout -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Women Empowerment -->
+          <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-saffron-100">
+            <div class="text-center mb-6">
+              <div class="w-16 h-16 bg-saffron-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">👩‍🎨</span>
+              </div>
+              <h3 class="text-2xl font-decorative font-bold text-saffron-700 mb-2">
+                {WOMEN_EMPOWERMENT.tagline}
+              </h3>
+            </div>
+            <ul class="space-y-3">
+              {WOMEN_EMPOWERMENT.values.map((value) => (
+                <li class="flex items-start">
+                  <span class="text-saffron-500 text-lg mr-3">🌸</span>
+                  <span class="text-neutral-700 dark:text-neutral-300">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Atmanirbhar Bharat -->
+          <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-emerald-100">
+            <div class="text-center mb-6">
+              <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">🇮🇳</span>
+              </div>
+              <h3 class="text-2xl font-decorative font-bold text-emerald-700 mb-2 font-hindi">
+                Made in India Movement
+              </h3>
+            </div>
+            <ul class="space-y-3">
+              {ATMANIRBHAR_MESSAGING.benefits.map((benefit) => (
+                <li class="flex items-start">
+                  <span class="text-emerald-500 text-lg mr-3">🏛️</span>
+                  <span class="text-neutral-700 dark:text-neutral-300">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center mt-12">
+          <p class="text-lg text-neutral-600 mb-6 font-hindi">
+            हर खरीदारी से मजबूत बने भारत | Every Purchase Strengthens India
+          </p>
+          <a 
+            href="/shop" 
+            class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-saffron-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            Support Indian Artisans
+            <span class="ml-2">🙏</span>
           </a>
         </div>
       </div>
     </div>
-    
-    <!-- Decorative Elements -->
-    <div class="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-20 animate-bounce"></div>
-    <div class="absolute bottom-20 right-10 w-16 h-16 bg-accent-200 rounded-full opacity-20 animate-bounce" style="animation-delay: 1s;"></div>
   </section>
 
   <!-- Quick Search Section -->
@@ -128,40 +244,80 @@ const categories = [
   </section>
 
   <!-- Shop by Category Section -->
-  <section class="py-16 bg-neutral-50 dark:bg-neutral-800">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
-          Shop by Category
+  <section class="py-20 bg-gradient-to-br from-neutral-50 via-saffron-25 to-emerald-25 dark:bg-neutral-800 relative overflow-hidden">
+    <!-- Indian pattern background -->
+    <div class="absolute inset-0 bg-rangoli opacity-5"></div>
+    
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-decorative font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          <span class="bg-gradient-to-r from-saffron-600 to-emerald-600 bg-clip-text text-transparent">
+            Shop by Category
+          </span>
         </h2>
-        <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          Discover our carefully curated collection of handmade treasures, organized by category for easy browsing.
+        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-4">
+          Discover our carefully curated collection of handmade treasures, each category representing centuries of Indian artistry.
+        </p>
+        <p class="text-lg text-emerald-700 font-hindi">
+          भारतीय कलाकृतियों का खजाना | Treasury of Indian Arts
         </p>
       </div>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {categories.map((category) => (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {categories.map((category, index) => (
           <a 
             href={category.href}
-            class="group bg-white dark:bg-neutral-900 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200 dark:border-neutral-700 text-center transform hover:-translate-y-2"
+            class="group relative bg-white/80 backdrop-blur-sm dark:bg-neutral-900/80 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gradient-to-r from-saffron-200 to-emerald-200 dark:border-neutral-700 text-center transform hover:-translate-y-4 hover:rotate-1"
+            style={`animation-delay: ${index * 150}ms`}
           >
-            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
-              {category.icon}
+            <!-- Decorative corner elements -->
+            <div class="absolute top-3 left-3 w-6 h-6 border-l-2 border-t-2 border-saffron-300 rounded-tl-lg"></div>
+            <div class="absolute top-3 right-3 w-6 h-6 border-r-2 border-t-2 border-emerald-300 rounded-tr-lg"></div>
+            <div class="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-b-2 border-emerald-300 rounded-bl-lg"></div>
+            <div class="absolute bottom-3 right-3 w-6 h-6 border-r-2 border-b-2 border-saffron-300 rounded-br-lg"></div>
+            
+            <div class="relative">
+              <div class="text-6xl mb-6 group-hover:scale-125 transition-transform duration-300 filter drop-shadow-lg">
+                {category.icon}
+              </div>
+              <h3 class="text-xl font-decorative font-bold text-neutral-900 dark:text-neutral-100 mb-2 group-hover:text-saffron-600 transition-colors">
+                {category.name}
+              </h3>
+              <p class="text-sm text-saffron-600 font-hindi mb-3 font-medium">
+                {category.hindi}
+              </p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                {category.description}
+              </p>
+              
+              <!-- Hover effect arrow -->
+              <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="inline-flex items-center text-emerald-600 font-medium">
+                  Explore
+                  <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
             </div>
-            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2 group-hover:text-primary-600 transition-colors">
-              {category.name}
-            </h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              {category.description}
-            </p>
           </a>
         ))}
       </div>
       
-      <div class="text-center mt-12">
+      <div class="text-center mt-16">
         <a 
           href="/shop" 
-          class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors"
+          class="group inline-flex items-center px-10 py-4 bg-gradient-to-r from-saffron-600 to-emerald-600 hover:from-saffron-700 hover:to-emerald-700 text-white font-decorative font-semibold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <span class="mr-3">🎨</span>
+          View All Collections
+          <svg class="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
         >
           View All Products
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
