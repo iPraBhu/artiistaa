@@ -3,13 +3,12 @@
 
 export const SITE_CONFIG = {
   // ===============================================================================
-  // REPLACE THESE PLACEHOLDERS WITH YOUR ACTUAL VALUES
+  // MAIN CONFIGURATION - UPDATE THIS FOR DEPLOYMENT
   // ===============================================================================
-  STORE_NAME: 'Artiistaa', // Replace with your store name
-  GITHUB_USERNAME: 'iPraBhu', // Replace with your GitHub username
-  GITHUB_REPO: 'artiistaa', // Replace with your repository name
-  WHATSAPP_NUMBER_INTL: '+919356944708', // Replace with your international WhatsApp number
-  CANONICAL_DOMAIN: '', // Optional: Replace with your custom domain (leave empty for GitHub Pages)
+  STORE_NAME: 'Artiistaa',
+  WHATSAPP_NUMBER_INTL: '+919356944708',
+  CANONICAL_DOMAIN: 'store.pratik-bhuite.com/', // Change this to your domain (e.g., 'yourdomain.com')
+  USE_HTTPS: true, // Set to true for production domains
   // ===============================================================================
   
   // Site metadata
@@ -24,9 +23,10 @@ export const SITE_CONFIG = {
   
   // Site URLs
   get SITE_URL() {
+    const protocol = this.USE_HTTPS ? 'https' : 'http';
     return this.CANONICAL_DOMAIN 
-      ? `https://${this.CANONICAL_DOMAIN}` 
-      : `https://${this.GITHUB_USERNAME}.github.io/${this.GITHUB_REPO}`;
+      ? `${protocol}://${this.CANONICAL_DOMAIN}` 
+      : 'http://localhost:4321';
   },
   
   // WhatsApp message template
@@ -91,3 +91,6 @@ export const FOOTER_LINKS = {
     { name: 'WhatsApp', href: `https://wa.me/${SITE_CONFIG.WHATSAPP_NUMBER_INTL.replace('+', '')}` },
   ],
 };
+
+// Export the site URL for astro.config.mjs
+export const getSiteUrl = () => SITE_CONFIG.SITE_URL;

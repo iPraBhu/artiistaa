@@ -1,6 +1,6 @@
 "# 🎨 Artiistaa - Handmade Art & Craft Store
 
-A beautiful, mobile-first e-commerce storefront for handmade art and craft products from India. Built with Astro, TypeScript, Tailwind CSS, and optimized for GitHub Pages deployment.
+A beautiful, mobile-first e-commerce storefront for handmade art and craft products from India. Built with Astro, TypeScript, and Tailwind CSS.
 
 
 
@@ -27,7 +27,7 @@ A beautiful, mobile-first e-commerce storefront for handmade art and craft produ
 - **Content**: Markdown with YAML frontmatter
 - **Search**: [Fuse.js](https://fusejs.io/) - Lightweight fuzzy search
 - **CMS**: [Decap CMS](https://decapcms.org/) - Git-based content management
-- **Deployment**: GitHub Pages via GitHub Actions
+- **Deployment**: Netlify, Vercel, or Cloudflare Pages
 - **Analytics**: Plausible (optional)
 
 ## 🚀 Quick Start
@@ -36,13 +36,12 @@ A beautiful, mobile-first e-commerce storefront for handmade art and craft produ
 
 - Node.js 18+ and npm
 - Git
-- GitHub account (for deployment)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/iPraBhu/artiistaa.git
+   git clone <your-repository-url>
    cd artiistaa
    ```
 
@@ -71,30 +70,20 @@ export const SITE_CONFIG = {
   // REPLACE THESE WITH YOUR ACTUAL VALUES
   // ===============================================================================
   STORE_NAME: 'Your Store Name',                    // Replace with your store name
-  GITHUB_USERNAME: 'yourusername',                  // Your GitHub username
-  GITHUB_REPO: 'your-repo-name',                   // Your repository name
   WHATSAPP_NUMBER_INTL: '+1234567890',             // Your WhatsApp number with country code
-  CANONICAL_DOMAIN: 'yourdomain.com',              // Optional: your custom domain
+  CANONICAL_DOMAIN: 'yourdomain.com',              // Your domain
   // ===============================================================================
 };
 ```
 
-### Update Repository Settings
+### Update Configuration
 
 1. **Update `astro.config.mjs`**:
    ```javascript
    export default defineConfig({
-     site: 'https://yourdomain.com', // or https://yourusername.github.io for GitHub Pages
+     site: 'https://yourdomain.com', // Your production domain
      // ... rest of config
    });
-   ```
-
-2. **Update CMS config in `admin/config.yml`**:
-   ```yaml
-   backend:
-     name: github
-     repo: yourusername/your-repo-name
-     branch: main
    ```
 
 ## 📝 Content Management
@@ -104,8 +93,8 @@ export const SITE_CONFIG = {
 #### Option 1: Using Decap CMS (Recommended)
 
 1. Deploy your site first (see deployment section)
-2. Visit `https://yourusername.github.io/your-repo-name/admin/`
-3. Authenticate with GitHub
+2. Visit `https://yourdomain.com/admin/`
+3. Set up authentication based on your deployment platform
 4. Click "New Product" to add products with a user-friendly interface
 
 #### Option 2: Manual Markdown Files
@@ -166,30 +155,27 @@ Each product requires:
 
 ## 🚀 Deployment
 
-### GitHub Pages (Recommended)
+### Netlify (Recommended)
 
-1. **Push to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Initial setup"
-   git push origin main
-   ```
+1. **Connect your repository** to Netlify
+2. **Build settings**:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+3. **Deploy** automatically on git push
 
-2. **Enable GitHub Pages**:
-   - Go to repository Settings > Pages
-   - Select "GitHub Actions" as source
-   - The workflow will automatically deploy your site
+### Vercel
 
-3. **Custom Domain** (Optional):
-   - Add your domain to repository Settings > Pages
-   - Update `CANONICAL_DOMAIN` in constants.ts
+1. **Import your repository** to Vercel
+2. **Framework preset**: Astro
+3. **Deploy** automatically
 
-### Alternative Deployments
+### Cloudflare Pages
 
-The site can also be deployed to:
-- **Netlify**: Connect your GitHub repo
-- **Vercel**: Import your GitHub repo  
-- **Cloudflare Pages**: Connect GitHub integration
+1. **Connect Git integration**
+2. **Build settings**:
+   - Build command: `npm run build`
+   - Build output directory: `dist`
+3. **Deploy** on git push
 
 ## 🔍 Search Setup
 

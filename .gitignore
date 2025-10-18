@@ -53,5 +53,5 @@ Thumbs.db
 .cache/
 .parcel-cache/
 
-# GitHub Pages
+# Build directories
 _site/
