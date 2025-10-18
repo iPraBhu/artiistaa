@@ -92,7 +92,7 @@ const isAvailable = product.in_stock !== false;
         </div>
         
         {product.sku && (
-          <span class="text-sm text-neutral-500 dark:text-neutral-400" itemprop="sku">
+          <span class="text-sm text-neutral-600 dark:text-neutral-300 font-medium" itemprop="sku">
             SKU: {product.sku}
           </span>
         )}
@@ -101,7 +101,7 @@ const isAvailable = product.in_stock !== false;
 
     <!-- Description -->
     {(showDescription || variant === 'featured') && product.short && (
-      <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4 line-clamp-3" itemprop="description">
+      <p class="text-neutral-700 dark:text-neutral-300 text-sm mb-4 line-clamp-3 font-medium" itemprop="description">
         {product.short}
       </p>
     )}
@@ -114,7 +114,7 @@ const isAvailable = product.in_stock !== false;
             {product.categories.slice(0, 2).map((category) => (
               <a 
                 href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
-                class="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 rounded-full hover:bg-primary-100 hover:text-primary-700 transition-colors"
+                class="text-xs px-2 py-1 bg-neutral-200 dark:bg-neutral-600 text-neutral-700 dark:text-neutral-200 rounded-full hover:bg-primary-100 hover:text-primary-800 transition-colors font-medium"
               >
                 {category}
               </a>

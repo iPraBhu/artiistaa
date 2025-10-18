@@ -10,16 +10,16 @@ const currentYear = new Date().getFullYear();
   
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <!-- Women Empowerment Banner -->
-    <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 mb-12 border border-saffron-100">
+    <div class="bg-white/85 backdrop-blur-sm rounded-2xl p-6 mb-12 border border-saffron-200 shadow-lg">
       <div class="text-center">
-        <h3 class="text-2xl font-decorative font-bold text-saffron-700 mb-3">
+        <h3 class="text-2xl font-decorative font-bold text-saffron-800 mb-3">
           👩‍🎨 {WOMEN_EMPOWERMENT.tagline} 👩‍🎨
         </h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           {Object.entries(WOMEN_EMPOWERMENT.stats).map(([_, stat]) => (
             <div class="text-center">
-              <div class="text-lg sm:text-xl font-bold text-emerald-700">{stat.split(' ')[0]}</div>
-              <div class="text-xs text-neutral-600">{stat.split(' ').slice(1).join(' ')}</div>
+              <div class="text-lg sm:text-xl font-bold text-emerald-800">{stat.split(' ')[0]}</div>
+              <div class="text-xs text-neutral-700 font-medium">{stat.split(' ').slice(1).join(' ')}</div>
             </div>
           ))}
         </div>
@@ -48,7 +48,7 @@ const currentYear = new Date().getFullYear();
           </div>
         </div>
         
-        <p class="text-neutral-700 dark:text-neutral-300 mb-6 max-w-md leading-relaxed">
+        <p class="text-neutral-800 dark:text-neutral-200 mb-6 max-w-md leading-relaxed font-medium">
           {SITE_CONFIG.DESCRIPTION}
         </p>
         
@@ -97,27 +97,27 @@ const currentYear = new Date().getFullYear();
 
       <!-- Shop by Indian Traditions -->
       <div>
-        <h3 class="text-lg font-decorative font-bold text-saffron-700 mb-4 flex items-center">
+        <h3 class="text-lg font-decorative font-bold text-saffron-800 mb-4 flex items-center">
           <span class="mr-2">🛍️</span> Shop by Tradition
         </h3>
         <ul class="space-y-3">
           <li>
-            <a href="/category/festive-decor" class="text-neutral-700 dark:text-neutral-300 hover:text-saffron-600 transition-colors text-sm flex items-center">
+            <a href="/category/festive-decor" class="text-neutral-800 dark:text-neutral-200 hover:text-saffron-700 transition-colors text-sm flex items-center font-medium">
               <span class="mr-2">🪔</span> Festive Decor
             </a>
           </li>
           <li>
-            <a href="/category/home-decor" class="text-neutral-700 dark:text-neutral-300 hover:text-saffron-600 transition-colors text-sm flex items-center">
+            <a href="/category/home-decor" class="text-neutral-800 dark:text-neutral-200 hover:text-saffron-700 transition-colors text-sm flex items-center font-medium">
               <span class="mr-2">🏺</span> Home Decor
             </a>
           </li>
           <li>
-            <a href="/category/pottery-ceramics" class="text-neutral-700 dark:text-neutral-300 hover:text-saffron-600 transition-colors text-sm flex items-center">
+            <a href="/category/pottery-ceramics" class="text-neutral-800 dark:text-neutral-200 hover:text-saffron-700 transition-colors text-sm flex items-center font-medium">
               <span class="mr-2">🏺</span> Pottery & Ceramics
             </a>
           </li>
           <li>
-            <a href="/category/textiles-fabrics" class="text-neutral-700 dark:text-neutral-300 hover:text-saffron-600 transition-colors text-sm flex items-center">
+            <a href="/category/textiles-fabrics" class="text-neutral-800 dark:text-neutral-200 hover:text-saffron-700 transition-colors text-sm flex items-center font-medium">
               <span class="mr-2">🧵</span> Textiles & Fabrics
             </a>
           </li>
@@ -126,27 +126,27 @@ const currentYear = new Date().getFullYear();
 
       <!-- About -->
       <div>
-        <h3 class="text-lg font-decorative font-bold text-emerald-700 mb-4 flex items-center">
+        <h3 class="text-lg font-decorative font-bold text-emerald-800 mb-4 flex items-center">
           <span class="mr-2">🏛️</span> Our Mission
         </h3>
         <ul class="space-y-3">
           <li>
-            <a href="/about" class="text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 transition-colors text-sm flex items-center">
+            <a href="/about" class="text-neutral-800 dark:text-neutral-200 hover:text-emerald-700 transition-colors text-sm flex items-center font-medium">
               <span class="mr-2">📖</span> Our Story
             </a>
           </li>
           <li>
-            <a href="/contact" class="text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 transition-colors text-sm flex items-center">
+            <a href="/contact" class="text-neutral-800 dark:text-neutral-200 hover:text-emerald-700 transition-colors text-sm flex items-center font-medium">
               <span class="mr-2">📞</span> Contact Us
             </a>
           </li>
           <li>
-            <span class="text-neutral-700 dark:text-neutral-300 text-sm flex items-center">
+            <span class="text-neutral-800 dark:text-neutral-200 text-sm flex items-center font-medium">
               <span class="mr-2">🌱</span> Sustainable Crafts
             </span>
           </li>
           <li>
-            <span class="text-neutral-700 dark:text-neutral-300 text-sm flex items-center">
+            <span class="text-neutral-800 dark:text-neutral-200 text-sm flex items-center font-medium">
               <span class="mr-2">👩‍🎨</span> Women Artisans
             </span>
           </li>
@@ -156,19 +156,19 @@ const currentYear = new Date().getFullYear();
 
     <!-- Atmanirbhar Bharat Section -->
     <div class="mt-12 pt-8 border-t-2 border-gradient-to-r from-saffron-300 to-emerald-300">
-      <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-100">
+      <div class="bg-white/85 backdrop-blur-sm rounded-2xl p-6 border border-emerald-200 shadow-md">
         <div class="text-center">
-          <h3 class="text-2xl font-decorative font-bold text-emerald-700 mb-3 font-hindi">
+          <h3 class="text-2xl font-decorative font-bold text-emerald-800 mb-3 font-hindi">
             🇮🇳 {ATMANIRBHAR_MESSAGING.title} 🇮🇳
           </h3>
-          <p class="text-lg text-neutral-700 mb-4 font-hindi">
+          <p class="text-lg text-neutral-800 mb-4 font-hindi font-semibold">
             हर खरीदारी से मजबूत बने भारत | {ATMANIRBHAR_MESSAGING.subtitle}
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
             {ATMANIRBHAR_MESSAGING.benefits.map((benefit) => (
               <div class="flex items-start">
-                <span class="text-emerald-500 text-lg mr-3">🏛️</span>
-                <span class="text-sm text-neutral-600">{benefit}</span>
+                <span class="text-emerald-600 text-lg mr-3">🏛️</span>
+                <span class="text-sm text-neutral-800 font-medium">{benefit}</span>
               </div>
             ))}
           </div>
@@ -179,10 +179,10 @@ const currentYear = new Date().getFullYear();
     <!-- Newsletter Signup with Indian Styling -->
     <div class="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
       <div class="max-w-lg mx-auto text-center">
-        <h3 class="text-xl font-decorative font-bold text-saffron-700 mb-3">
+        <h3 class="text-xl font-decorative font-bold text-saffron-800 mb-3">
           🌸 Join Our Community 🌸
         </h3>
-        <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-6">
+        <p class="text-neutral-700 dark:text-neutral-300 text-sm mb-6 font-medium">
           Get updates on new artisan products and stories of women empowerment.
         </p>
         
@@ -205,16 +205,16 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom Footer with Indian Pride -->
     <div class="mt-12 pt-8 border-t-2 border-gradient-to-r from-saffron-200 to-emerald-200 flex flex-col sm:flex-row justify-between items-center">
       <div class="text-center sm:text-left">
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+        <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2 font-medium">
           &copy; {currentYear} {SITE_CONFIG.STORE_NAME}. All rights reserved.
         </p>
-        <p class="text-xs text-neutral-500 dark:text-neutral-500 mb-2">
+        <p class="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
           Created with ❤️ by Pratik Bhuite
         </p>
-        <p class="text-sm font-medium text-emerald-700 font-hindi">
+        <p class="text-sm font-medium text-emerald-800 font-hindi">
           🇮🇳 गर्व से बना भारत में | Proudly Made in India
         </p>
-        <p class="text-xs text-saffron-600 mt-1">
+        <p class="text-xs text-saffron-700 mt-1 font-medium">
           👩‍🎨 Supporting Women Entrepreneurs Across India
         </p>
       </div>

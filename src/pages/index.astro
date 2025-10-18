@@ -88,18 +88,18 @@ const categories = [
         
         <!-- Main Heading with Indian styling -->
         <h1 class="text-4xl sm:text-5xl lg:text-7xl font-decorative font-bold text-center mb-8">
-          <span class="block text-neutral-900 dark:text-neutral-100">Welcome to</span>
-          <span class="block bg-gradient-to-r from-saffron-600 via-terracotta-500 to-emerald-600 bg-clip-text text-transparent">
+          <span class="block text-neutral-800 dark:text-neutral-100">Welcome to</span>
+          <span class="block bg-gradient-to-r from-saffron-700 via-terracotta-600 to-emerald-700 bg-clip-text text-transparent">
             {SITE_CONFIG.STORE_NAME}
           </span>
         </h1>
         
         <!-- Brand messaging with emphasis on women empowerment -->
         <div class="text-center mb-12">
-          <p class="text-xl sm:text-2xl text-neutral-700 dark:text-neutral-300 mb-4 font-medium">
+          <p class="text-xl sm:text-2xl text-neutral-800 dark:text-neutral-200 mb-4 font-medium">
             {SITE_CONFIG.TAGLINE}
           </p>
-          <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-6 max-w-4xl mx-auto leading-relaxed">
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-6 max-w-4xl mx-auto leading-relaxed">
             {SITE_CONFIG.DESCRIPTION}
           </p>
           
@@ -145,9 +145,9 @@ const categories = [
         <!-- Statistics highlighting women empowerment -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {Object.entries(WOMEN_EMPOWERMENT.stats).map(([key, stat]) => (
-            <div class="text-center bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-md border border-white/20">
-              <div class="text-2xl sm:text-3xl font-bold text-emerald-700 mb-1">{stat.split(' ')[0]}</div>
-              <div class="text-sm text-neutral-600 font-medium">{stat.split(' ').slice(1).join(' ')}</div>
+            <div class="text-center bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-saffron-100">
+              <div class="text-2xl sm:text-3xl font-bold text-emerald-800 mb-1">{stat.split(' ')[0]}</div>
+              <div class="text-sm text-neutral-700 font-medium">{stat.split(' ').slice(1).join(' ')}</div>
             </div>
           ))}
         </div>
@@ -206,8 +206,8 @@ const categories = [
             <ul class="space-y-3">
               {ATMANIRBHAR_MESSAGING.benefits.map((benefit) => (
                 <li class="flex items-start">
-                  <span class="text-emerald-500 text-lg mr-3">🏛️</span>
-                  <span class="text-neutral-700 dark:text-neutral-300">{benefit}</span>
+                  <span class="text-emerald-600 text-lg mr-3">🏛️</span>
+                  <span class="text-neutral-800 dark:text-neutral-200 font-medium">{benefit}</span>
                 </li>
               ))}
             </ul>
@@ -251,14 +251,14 @@ const categories = [
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="text-center mb-16">
         <h2 class="text-4xl sm:text-5xl font-decorative font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          <span class="bg-gradient-to-r from-saffron-600 to-emerald-600 bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-saffron-700 to-emerald-700 bg-clip-text text-transparent">
             Shop by Category
           </span>
         </h2>
-        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-4">
+        <p class="text-xl text-neutral-700 dark:text-neutral-300 max-w-3xl mx-auto mb-4 font-medium">
           Discover our carefully curated collection of handmade treasures, each category representing centuries of Indian artistry.
         </p>
-        <p class="text-lg text-emerald-700 font-hindi">
+        <p class="text-lg text-emerald-800 font-hindi font-semibold">
           भारतीय कलाकृतियों का खजाना | Treasury of Indian Arts
         </p>
       </div>
@@ -280,13 +280,13 @@ const categories = [
               <div class="text-6xl mb-6 group-hover:scale-125 transition-transform duration-300 filter drop-shadow-lg">
                 {category.icon}
               </div>
-              <h3 class="text-xl font-decorative font-bold text-neutral-900 dark:text-neutral-100 mb-2 group-hover:text-saffron-600 transition-colors">
+              <h3 class="text-xl font-decorative font-bold text-neutral-900 dark:text-neutral-100 mb-2 group-hover:text-saffron-700 transition-colors">
                 {category.name}
               </h3>
-              <p class="text-sm text-saffron-600 font-hindi mb-3 font-medium">
+              <p class="text-sm text-saffron-700 font-hindi mb-3 font-semibold">
                 {category.hindi}
               </p>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-medium">
                 {category.description}
               </p>
               
@@ -312,15 +312,6 @@ const categories = [
           <span class="mr-3">🎨</span>
           View All Collections
           <svg class="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-        >
-          View All Products
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -372,10 +363,10 @@ const categories = [
             <h2 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-6">
               About Our Artisans
             </h2>
-            <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-6 leading-relaxed">
+            <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-6 leading-relaxed font-medium">
               Every piece in our collection tells a story of tradition, skill, and passion. Our artisans across India pour their heart and soul into creating unique, handmade treasures that celebrate our rich cultural heritage.
             </p>
-            <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+            <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-8 leading-relaxed font-medium">
               From the bustling workshops of Delhi to the serene pottery villages of Gujarat, we work directly with craftspeople to bring you authentic, high-quality handmade products.
             </p>
             <a 
@@ -402,7 +393,7 @@ const categories = [
             </div>
             <div class="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-800 rounded-xl p-4 shadow-lg border border-neutral-200 dark:border-neutral-700">
               <p class="text-sm font-medium text-neutral-900 dark:text-neutral-100">🇮🇳 Made in India</p>
-              <p class="text-xs text-neutral-600 dark:text-neutral-400">With love & tradition</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300 font-medium">With love & tradition</p>
             </div>
           </div>
         </div>
