@@ -1,0 +1,228 @@
+[
+  {
+    "title": "Handwoven Cotton Table Runner",
+    "short": "Elegant handwoven cotton table runner with traditional block print patterns, perfect for dining room decoration.",
+    "tags": [
+      "handwoven",
+      "cotton",
+      "table-runner",
+      "home-decor",
+      "traditional",
+      "sustainable"
+    ],
+    "categories": [
+      "Home Decor",
+      "Textiles & Fabrics"
+    ],
+    "url": "/products/handwoven-cotton-table-runner/",
+    "price": 1250,
+    "currency": "INR",
+    "badges": [
+      "FEATURED",
+      "BESTSELLER"
+    ],
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "Hand-painted Clay Diya",
+    "short": "Beautiful hand-painted earthen diya with intricate floral patterns, perfect for festivals and home decoration.",
+    "tags": [
+      "diya",
+      "handmade",
+      "painted",
+      "eco-friendly",
+      "traditional",
+      "festival"
+    ],
+    "categories": [
+      "Festive Decor"
+    ],
+    "url": "/products/hand-painted-clay-diya/",
+    "price": 299,
+    "currency": "INR",
+    "badges": [
+      "FEATURED",
+      "NEW"
+    ],
+    "image": "https://images.unsplash.com/photo-1604608672516-1b913ff2e952?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "DEMO - Silver Oxidized Jhumka Earrings",
+    "short": "Elegant oxidized silver jhumka earrings with intricate traditional motifs",
+    "tags": [
+      "demo",
+      "silver",
+      "oxidized",
+      "jhumka",
+      "earrings",
+      "traditional",
+      "rajasthani",
+      "handcrafted"
+    ],
+    "categories": [
+      "Jewelry & Accessories"
+    ],
+    "url": "/products/demo-silver-jhumka-earrings/",
+    "price": 699,
+    "currency": "INR",
+    "badges": [
+      "BESTSELLER"
+    ],
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "DEMO - Madhubani Painting on Handmade Paper",
+    "short": "Authentic Madhubani painting featuring traditional motifs on handmade paper",
+    "tags": [
+      "demo",
+      "madhubani",
+      "painting",
+      "handmade-paper",
+      "traditional-art",
+      "bihar",
+      "folk-art",
+      "gift"
+    ],
+    "categories": [
+      "Art & Paintings"
+    ],
+    "url": "/products/demo-madhubani-painting/",
+    "price": 2499,
+    "currency": "INR",
+    "badges": [
+      "LIMITED",
+      "NEW"
+    ],
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "DEMO - Handwoven Indigo Block Print Table Runner",
+    "short": "Beautiful handwoven cotton table runner with traditional indigo block print",
+    "tags": [
+      "demo",
+      "handwoven",
+      "block-print",
+      "indigo",
+      "cotton",
+      "eco-friendly",
+      "table-decor"
+    ],
+    "categories": [
+      "Textiles & Fabrics",
+      "Home Decor"
+    ],
+    "url": "/products/demo-indigo-table-runner/",
+    "price": 899,
+    "currency": "INR",
+    "badges": [
+      "LIMITED",
+      "NEW"
+    ],
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "DEMO - Terracotta Oil Lamp Set for Diwali",
+    "short": "Set of 12 handcrafted terracotta oil lamps perfect for Diwali celebrations",
+    "tags": [
+      "demo",
+      "terracotta",
+      "diwali",
+      "festive",
+      "handmade",
+      "traditional",
+      "oil-lamp",
+      "eco-friendly"
+    ],
+    "categories": [
+      "Festive Decor",
+      "Pottery & Ceramics"
+    ],
+    "url": "/products/demo-diwali-oil-lamps/",
+    "price": 549,
+    "currency": "INR",
+    "badges": [
+      "FEATURED",
+      "BESTSELLER"
+    ],
+    "image": "https://images.unsplash.com/photo-1604608672516-1b913ff2e952?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "DEMO - Antique Brass Elephant Figurine",
+    "short": "Beautifully crafted brass elephant figurine with intricate detailing",
+    "tags": [
+      "demo",
+      "handmade",
+      "brass",
+      "traditional",
+      "decorative",
+      "gift"
+    ],
+    "categories": [
+      "Home Decor"
+    ],
+    "url": "/products/demo-brass-elephant-figurine/",
+    "price": 1299,
+    "currency": "INR",
+    "badges": [
+      "FEATURED"
+    ],
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "DEMO - Bamboo Wind Chime with Coconut Shells",
+    "short": "Eco-friendly bamboo wind chime featuring coconut shell accents and soothing tones",
+    "tags": [
+      "demo",
+      "bamboo",
+      "wind-chime",
+      "eco-friendly",
+      "coconut-shell",
+      "sustainable",
+      "garden-decor",
+      "meditation"
+    ],
+    "categories": [
+      "Home Decor"
+    ],
+    "url": "/products/demo-bamboo-wind-chime/",
+    "price": 799,
+    "currency": "INR",
+    "badges": [
+      "NEW"
+    ],
+    "image": "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&h=800&fit=crop",
+    "in_stock": true
+  },
+  {
+    "title": "Brass Decorative Bowl Set",
+    "short": "Set of three handcrafted brass bowls with intricate engravings, perfect for serving and home decoration.",
+    "tags": [
+      "brass",
+      "bowl-set",
+      "decorative",
+      "handcrafted",
+      "traditional",
+      "serving"
+    ],
+    "categories": [
+      "Home Decor",
+      "Metalwork"
+    ],
+    "url": "/products/brass-decorative-bowl-set/",
+    "price": 2850,
+    "currency": "INR",
+    "badges": [
+      "BESTSELLER",
+      "LIMITED"
+    ],
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop",
+    "in_stock": true
+  }
+]

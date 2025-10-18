@@ -1,0 +1,293 @@
+---
+title: Contact Us
+---
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '@/utils/constants';
+import { generateSEO } from '@/utils/helpers';
+
+export const seo = generateSEO({
+  title: 'Contact Us',
+  description: 'Get in touch with us for questions, custom orders, or to learn more about our handmade products and artisan partners.',
+});
+
+<BaseLayout seo={seo}>
+  {/* Hero Section */}
+  <section class="py-16 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-primary-900/10 dark:via-neutral-900 dark:to-accent-900/10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          Get in Touch
+        </h1>
+        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          We'd love to hear from you! Reach out for questions, custom orders, or just to say hello.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Contact Methods */}
+  <section class="py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <div>
+            <h2 class="text-3xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-8">
+              Let's Connect
+            </h2>
+            
+            <div class="space-y-6">
+              {/* WhatsApp */}
+              <a 
+                href={`https://wa.me/${SITE_CONFIG.WHATSAPP_NUMBER_INTL.replace('+', '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center p-6 bg-green-50 hover:bg-green-100 dark:bg-green-900/10 dark:hover:bg-green-900/20 rounded-2xl transition-colors group"
+              >
+                <div class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-green-700 transition-colors">
+                    WhatsApp
+                  </h3>
+                  <p class="text-neutral-600 dark:text-neutral-400">
+                    Chat with us instantly for quick responses
+                  </p>
+                  <p class="text-sm text-green-600 font-medium mt-1">
+                    {SITE_CONFIG.WHATSAPP_NUMBER_INTL}
+                  </p>
+                </div>
+              </a>
+
+              {/* Email */}
+              <a 
+                href={`mailto:${SITE_CONFIG.EMAIL}`}
+                class="flex items-center p-6 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/10 dark:hover:bg-primary-900/20 rounded-2xl transition-colors group"
+              >
+                <div class="flex-shrink-0 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-primary-700 transition-colors">
+                    Email
+                  </h3>
+                  <p class="text-neutral-600 dark:text-neutral-400">
+                    Send us a detailed message
+                  </p>
+                  <p class="text-sm text-primary-600 font-medium mt-1">
+                    {SITE_CONFIG.EMAIL}
+                  </p>
+                </div>
+              </a>
+
+              {/* Instagram */}
+              <a 
+                href={`https://instagram.com/${SITE_CONFIG.INSTAGRAM.replace('@', '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center p-6 bg-pink-50 hover:bg-pink-100 dark:bg-pink-900/10 dark:hover:bg-pink-900/20 rounded-2xl transition-colors group"
+              >
+                <div class="flex-shrink-0 w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zm5.765 18.462c-.728.988-1.798 1.798-3.187 2.412-1.464.649-3.043.974-4.699.974-1.656 0-3.235-.325-4.699-.974-1.389-.614-2.459-1.424-3.187-2.412-.728-.988-1.296-2.13-1.687-3.398-.364-1.182-.546-2.396-.546-3.623s.182-2.441.546-3.623c.391-1.268.959-2.41 1.687-3.398.728-.988 1.798-1.798 3.187-2.412C8.782.675 10.361.35 12.017.35s3.235.325 4.699.974c1.389.614 2.459 1.424 3.187 2.412.728.988 1.296 2.13 1.687 3.398.364 1.182.546 2.396.546 3.623s-.182 2.441-.546 3.623c-.391 1.268-.959 2.41-1.687 3.398z"/>
+                    <path d="M12.017 5.351c-3.667 0-6.636 2.969-6.636 6.636s2.969 6.636 6.636 6.636 6.636-2.969 6.636-6.636-2.969-6.636-6.636-6.636zm0 10.942c-2.373 0-4.306-1.933-4.306-4.306s1.933-4.306 4.306-4.306 4.306 1.933 4.306 4.306-1.933 4.306-4.306 4.306z"/>
+                    <circle cx="18.651" cy="5.351" r="1.564"/>
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-pink-700 transition-colors">
+                    Instagram
+                  </h3>
+                  <p class="text-neutral-600 dark:text-neutral-400">
+                    Follow our journey and latest creations
+                  </p>
+                  <p class="text-sm text-pink-600 font-medium mt-1">
+                    {SITE_CONFIG.INSTAGRAM}
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            {/* Response Time */}
+            <div class="mt-8 p-6 bg-accent-50 dark:bg-accent-900/10 rounded-2xl">
+              <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2 flex items-center">
+                <svg class="w-5 h-5 mr-2 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Response Time
+              </h3>
+              <p class="text-neutral-600 dark:text-neutral-400">
+                We typically respond to WhatsApp messages within 1-2 hours during business hours (9 AM - 7 PM IST) and to emails within 24 hours.
+              </p>
+            </div>
+          </div>
+
+          {/* Contact Form (Optional - Commented Out) */}
+          <div>
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg border border-neutral-200 dark:border-neutral-700 p-8">
+              <h2 class="text-2xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+                Send us a Message
+              </h2>
+              
+              {/* Note about form */}
+              <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p class="text-sm text-blue-800 dark:text-blue-300">
+                  <strong>Note:</strong> This form is for demonstration purposes. For the best experience, please contact us directly via WhatsApp or email using the methods on the left.
+                </p>
+              </div>
+              
+              <form class="space-y-6" id="contact-form">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    Full Name
+                  </label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    placeholder="Your full name"
+                  />
+                </div>
+                
+                <div>
+                  <label for="email" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    Email Address
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                
+                <div>
+                  <label for="subject" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    Subject
+                  </label>
+                  <select 
+                    id="subject" 
+                    name="subject"
+                    required
+                    class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  >
+                    <option value="">Select a subject</option>
+                    <option value="product-inquiry">Product Inquiry</option>
+                    <option value="custom-order">Custom Order</option>
+                    <option value="wholesale">Wholesale Inquiry</option>
+                    <option value="partnership">Partnership Opportunity</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    Message
+                  </label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="5"
+                    required
+                    class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-vertical"
+                    placeholder="Tell us about your inquiry..."
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit"
+                  class="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                >
+                  Send Message
+                </button>
+              </form>
+              
+              {/* Alternative CTA */}
+              <div class="mt-6 text-center">
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+                  Prefer instant messaging?
+                </p>
+                <a 
+                  href={`https://wa.me/${SITE_CONFIG.WHATSAPP_NUMBER_INTL.replace('+', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg transition-colors"
+                >
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                  </svg>
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ Section */}
+  <section class="py-16 bg-neutral-50 dark:bg-neutral-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">
+            Quick answers to common questions about our products and services.
+          </p>
+        </div>
+        
+        <div class="space-y-6">
+          <div class="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+              How do I place an order?
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Simply click the "Buy on WhatsApp" button on any product page, and you'll be connected with us instantly to complete your order with personalized assistance.
+            </p>
+          </div>
+          
+          <div class="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+              Do you offer custom orders?
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Yes! Many of our artisan partners can create custom pieces. Contact us via WhatsApp with your requirements, and we'll connect you with the right craftsperson.
+            </p>
+          </div>
+          
+          <div class="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+              What are your shipping options?
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              We ship across India and internationally. Shipping costs and delivery times vary by location and product size. We'll provide exact details when you contact us.
+            </p>
+          </div>
+          
+          <div class="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+              Are all your products genuinely handmade?
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Absolutely! Every item is crafted by skilled artisans using traditional techniques. We visit our partners personally to ensure authenticity and quality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

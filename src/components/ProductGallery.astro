@@ -1,0 +1,253 @@
+---
+interface Props {
+  images: string[];
+  title: string;
+  className?: string;
+}
+
+const { images, title, className = '' } = Astro.props;
+const mainImage = images?.[0] || '/images/placeholder.jpg';
+const hasMultipleImages = images?.length > 1;
+---
+
+<div class={`product-gallery ${className}`}>
+  <!-- Main Image Display -->
+  <div class="relative mb-4">
+    <div class="aspect-square rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+      <img 
+        id="main-product-image"
+        src={mainImage}
+        alt={title}
+        class="w-full h-full object-cover transition-all duration-300"
+        loading="eager"
+      />
+    </div>
+    
+    <!-- Zoom Button -->
+    <button 
+      id="zoom-trigger"
+      class="absolute top-4 right-4 p-2 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-white dark:hover:bg-neutral-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+      aria-label="Zoom image"
+    >
+      <svg class="w-5 h-5 text-neutral-700 dark:text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Thumbnail Gallery -->
+  {hasMultipleImages && (
+    <div class="grid grid-cols-4 gap-2">
+      {images.slice(0, 4).map((image, index) => (
+        <button 
+          class="thumbnail aspect-square rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 border-2 border-transparent hover:border-primary-300 transition-colors focus:outline-none focus:border-primary-500"
+          data-image={image}
+          data-index={index}
+        >
+          <img 
+            src={image}
+            alt={`${title} - View ${index + 1}`}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+  )}
+
+  <!-- Image Counter -->
+  {images?.length > 1 && (
+    <div class="mt-2 text-center">
+      <span class="text-sm text-neutral-500 dark:text-neutral-400">
+        <span id="current-image">1</span> / {images.length}
+      </span>
+    </div>
+  )}
+</div>
+
+<!-- Modal for Zoomed View -->
+<div id="image-modal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4">
+  <div class="relative max-w-4xl max-h-full">
+    <!-- Close Button -->
+    <button 
+      id="close-modal"
+      class="absolute -top-12 right-0 text-white hover:text-neutral-300 transition-colors focus:outline-none"
+      aria-label="Close zoom view"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    
+    <!-- Zoomed Image -->
+    <img 
+      id="modal-image"
+      src={mainImage}
+      alt={title}
+      class="max-w-full max-h-full object-contain rounded-lg"
+    />
+    
+    <!-- Navigation Arrows (if multiple images) -->
+    {hasMultipleImages && (
+      <>
+        <button 
+          id="prev-image"
+          class="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-colors focus:outline-none"
+          aria-label="Previous image"
+        >
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button 
+          id="next-image"
+          class="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-colors focus:outline-none"
+          aria-label="Next image"
+        >
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </>
+    )}
+  </div>
+</div>
+
+<script define:vars={{ images, title }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainImage = document.getElementById('main-product-image');
+    const modalImage = document.getElementById('modal-image');
+    const modal = document.getElementById('image-modal');
+    const zoomTrigger = document.getElementById('zoom-trigger');
+    const closeModal = document.getElementById('close-modal');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const currentImageSpan = document.getElementById('current-image');
+    const prevButton = document.getElementById('prev-image');
+    const nextButton = document.getElementById('next-image');
+    
+    let currentIndex = 0;
+    
+    // Update main image and current index
+    function updateImage(index, src) {
+      if (mainImage) mainImage.src = src;
+      if (modalImage) modalImage.src = src;
+      if (currentImageSpan) currentImageSpan.textContent = (index + 1).toString();
+      
+      // Update thumbnail active state
+      thumbnails.forEach((thumb, i) => {
+        if (i === index) {
+          thumb.classList.add('border-primary-500');
+          thumb.classList.remove('border-transparent');
+        } else {
+          thumb.classList.add('border-transparent');
+          thumb.classList.remove('border-primary-500');
+        }
+      });
+      
+      currentIndex = index;
+    }
+    
+    // Thumbnail click handlers
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        const imageSrc = thumbnail.dataset.image;
+        if (imageSrc) {
+          updateImage(index, imageSrc);
+        }
+      });
+    });
+    
+    // Zoom trigger
+    if (zoomTrigger && modal) {
+      zoomTrigger.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    
+    // Close modal
+    function closeImageModal() {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+    
+    if (closeModal) {
+      closeModal.addEventListener('click', closeImageModal);
+    }
+    
+    // Close on backdrop click
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeImageModal();
+        }
+      });
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+    
+    // Navigation arrows
+    if (prevButton && images.length > 1) {
+      prevButton.addEventListener('click', () => {
+        const prevIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+        updateImage(prevIndex, images[prevIndex]);
+      });
+    }
+    
+    if (nextButton && images.length > 1) {
+      nextButton.addEventListener('click', () => {
+        const nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+        updateImage(nextIndex, images[nextIndex]);
+      });
+    }
+    
+    // Keyboard navigation in modal
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('hidden') && images.length > 1) {
+        if (e.key === 'ArrowLeft') {
+          const prevIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+          updateImage(prevIndex, images[prevIndex]);
+        } else if (e.key === 'ArrowRight') {
+          const nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+          updateImage(nextIndex, images[nextIndex]);
+        }
+      }
+    });
+    
+    // Initialize first thumbnail as active
+    if (thumbnails.length > 0) {
+      updateImage(0, images[0]);
+    }
+  });
+</script>
+
+<style>
+  .thumbnail {
+    transition: border-color 0.2s ease;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.02);
+  }
+  
+  #image-modal {
+    backdrop-filter: blur(8px);
+  }
+  
+  @media (max-width: 768px) {
+    #image-modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+  }
+</style>

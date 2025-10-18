@@ -1,0 +1,94 @@
+backend:
+  name: github
+  repo: iPraBhu/artiistaa
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "src/content/products"
+    create: true
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "slug", label: "Slug", widget: "string", required: false, hint: "Leave blank to auto-generate from title" }
+      - { name: "sku", label: "SKU", widget: "string", hint: "Unique product identifier (e.g., DIYA-001)" }
+      - { name: "price", label: "Price (INR)", widget: "number", valueType: "int", min: 1 }
+      - { name: "currency", label: "Currency", widget: "string", default: "INR" }
+      - { name: "categories", label: "Categories", widget: "list", allow_add: true, default: ["Home Decor"] }
+      - { name: "tags", label: "Tags", widget: "list", allow_add: true, default: ["handmade"] }
+      - { 
+          name: "images", 
+          label: "Images", 
+          widget: "list", 
+          field: { label: "Image", name: "image", widget: "image" },
+          min: 1,
+          hint: "Upload at least one product image. First image will be the main product image."
+        }
+      - { name: "short", label: "Short Description", widget: "text", hint: "Brief description shown in product cards and search results" }
+      - { name: "in_stock", label: "In Stock", widget: "boolean", default: true }
+      - { name: "featured", label: "Featured Product", widget: "boolean", default: false, hint: "Show on homepage and in featured sections" }
+      - { name: "bestseller", label: "Bestseller", widget: "boolean", default: false }
+      - { name: "limited", label: "Limited Edition", widget: "boolean", default: false }
+      - { name: "new", label: "New Arrival", widget: "boolean", default: false }
+      - { 
+          name: "specs", 
+          label: "Product Specifications", 
+          widget: "object", 
+          collapsed: true,
+          fields: [
+            { name: "material", label: "Material", widget: "string", required: false, hint: "e.g., Earthen clay, Cotton, Brass" },
+            { name: "size", label: "Size/Dimensions", widget: "string", required: false, hint: "e.g., 15cm x 10cm, One size fits all" },
+            { name: "weight", label: "Weight", widget: "string", required: false, hint: "e.g., 200g, 1.5kg" },
+            { name: "care", label: "Care Instructions", widget: "string", required: false, hint: "e.g., Wipe with dry cloth, Hand wash only" }
+          ]
+        }
+      - { 
+          name: "seo", 
+          label: "SEO Settings", 
+          widget: "object", 
+          collapsed: true,
+          hint: "Optional: Override default SEO settings",
+          fields: [
+            { name: "title", label: "SEO Title", widget: "string", required: false, hint: "Custom page title for search engines" },
+            { name: "description", label: "SEO Description", widget: "text", required: false, hint: "Custom meta description for search engines" }
+          ]
+        }
+      - { name: "body", label: "Long Description", widget: "markdown", hint: "Detailed product description with story, usage, etc." }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/about.mdx"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "body", label: "Body", widget: "markdown" }
+      - file: "src/pages/contact.mdx"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "src/utils/constants.ts"
+        label: "Site Configuration"
+        name: "config"
+        fields:
+          - { name: "store_name", label: "Store Name", widget: "string", default: "Artiistaa" }
+          - { name: "tagline", label: "Tagline", widget: "string", default: "Handcrafted with Love, Made in India" }
+          - { name: "description", label: "Site Description", widget: "text" }
+          - { name: "whatsapp_number", label: "WhatsApp Number (International)", widget: "string", hint: "Include country code, e.g., +919876543210" }
+          - { name: "email", label: "Contact Email", widget: "string" }
+          - { name: "instagram", label: "Instagram Handle", widget: "string", hint: "@yourusername" }
+          - { name: "canonical_domain", label: "Custom Domain", widget: "string", required: false, hint: "Optional: your-domain.com (without https://)" }

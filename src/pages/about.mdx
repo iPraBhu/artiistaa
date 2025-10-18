@@ -1,0 +1,259 @@
+---
+title: About Us
+---
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '@/utils/constants';
+import { generateSEO } from '@/utils/helpers';
+
+export const seo = generateSEO({
+  title: 'About Us - Our Story',
+  description: 'Learn about our mission to celebrate Indian craftsmanship and support local artisans across the country.',
+});
+
+<BaseLayout seo={seo}>
+  {/* Hero Section */}
+  <section class="py-16 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-primary-900/10 dark:via-neutral-900 dark:to-accent-900/10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          About {SITE_CONFIG.STORE_NAME}
+        </h1>
+        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          Celebrating the rich heritage of Indian craftsmanship, one handmade treasure at a time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Story Section */}
+  <section class="py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h2 class="text-3xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+              Our Story
+            </h2>
+            <div class="prose prose-lg dark:prose-invert">
+              <p>
+                {SITE_CONFIG.STORE_NAME} was born from a deep appreciation for India's incredible artistic heritage. We believe that every handmade piece tells a story – of tradition passed down through generations, of skilled hands creating beauty from raw materials, and of communities keeping ancient crafts alive.
+              </p>
+              <p>
+                Our journey began with a simple mission: to connect conscious consumers with authentic, handcrafted products while ensuring fair compensation for the talented artisans who create them.
+              </p>
+              <p>
+                Today, we partner with craftspeople from across India – from the pottery villages of Gujarat to the textile weavers of Rajasthan, from the metalworkers of Uttar Pradesh to the woodcarvers of Karnataka.
+              </p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-square rounded-2xl overflow-hidden bg-neutral-200 dark:bg-neutral-700">
+              <img 
+                src="/images/our-story.jpg" 
+                alt="Artisan working on traditional craft" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-800 rounded-xl p-4 shadow-lg border border-neutral-200 dark:border-neutral-700">
+              <p class="text-sm font-medium text-neutral-900 dark:text-neutral-100">🎨 Traditional Crafts</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Preserving heritage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Values Section */}
+  <section class="py-16 bg-neutral-50 dark:bg-neutral-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            Our Values
+          </h2>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+            These principles guide everything we do, from sourcing products to serving customers.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center p-6 bg-white dark:bg-neutral-900 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700">
+            <div class="w-16 h-16 mx-auto mb-4 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+              Authentic Craftsmanship
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Every product is genuinely handmade by skilled artisans using traditional techniques passed down through generations.
+            </p>
+          </div>
+          
+          <div class="text-center p-6 bg-white dark:bg-neutral-900 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700">
+            <div class="w-16 h-16 mx-auto mb-4 bg-accent-100 dark:bg-accent-900/20 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+              Fair Trade
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              We ensure our artisan partners receive fair compensation for their work, supporting sustainable livelihoods.
+            </p>
+          </div>
+          
+          <div class="text-center p-6 bg-white dark:bg-neutral-900 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700">
+            <div class="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+              Sustainability
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              We prioritize eco-friendly materials and processes, supporting both environmental and cultural sustainability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Process Section */}
+  <section class="py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            Our Process
+          </h2>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">
+            From artisan to your home – how we bring you authentic handmade treasures.
+          </p>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
+              <span class="text-primary-600 font-bold">1</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+                Artisan Partnership
+              </h3>
+              <p class="text-neutral-600 dark:text-neutral-400">
+                We travel across India to meet skilled craftspeople, understand their techniques, and establish fair, long-term partnerships.
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
+              <span class="text-primary-600 font-bold">2</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+                Quality Curation
+              </h3>
+              <p class="text-neutral-600 dark:text-neutral-400">
+                Each piece is carefully selected for its authenticity, craftsmanship quality, and cultural significance.
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
+              <span class="text-primary-600 font-bold">3</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+                Careful Packaging
+              </h3>
+              <p class="text-neutral-600 dark:text-neutral-400">
+                Products are lovingly packaged with eco-friendly materials to ensure they reach you in perfect condition.
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
+              <span class="text-primary-600 font-bold">4</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+                Direct to You
+              </h3>
+              <p class="text-neutral-600 dark:text-neutral-400">
+                We connect you directly with artisans through WhatsApp for a personal, authentic shopping experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Team Section (Optional) */}
+  <section class="py-16 bg-neutral-50 dark:bg-neutral-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          Meet Our Team
+        </h2>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-12">
+          Passionate about preserving India's craft traditions and connecting them with the world.
+        </p>
+        
+        {/* Add team member cards here when you have actual team members */}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Team member cards would go here */}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Call to Action */}
+  <section class="py-16 bg-primary-600">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-serif font-bold text-white mb-4">
+          Join Our Mission
+        </h2>
+        <p class="text-primary-100 mb-8 text-lg">
+          Help us preserve India's craft heritage while supporting artisan communities across the country.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a 
+            href="/shop" 
+            class="inline-flex items-center px-6 py-3 bg-white text-primary-600 hover:bg-neutral-50 font-medium rounded-lg transition-colors shadow-lg"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            Shop Now
+          </a>
+          
+          <a 
+            href={`https://wa.me/${SITE_CONFIG.WHATSAPP_NUMBER_INTL.replace('+', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-medium rounded-lg transition-colors backdrop-blur-sm"
+          >
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+            </svg>
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

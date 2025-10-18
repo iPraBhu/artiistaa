@@ -1,0 +1,110 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import SEOHead from '@/components/SEOHead.astro';
+import type { SEOData } from '@/types';
+import '@/styles/global.css';
+
+interface Props {
+  seo: SEOData;
+  class?: string;
+}
+
+const { seo, class: className = '' } = Astro.props;
+---
+
+<html lang="en-IN" class="scroll-smooth">
+<head>
+  <SEOHead seo={seo} />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+
+</head>
+
+<body class={`bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 ${className}`}>
+  <div class="min-h-screen flex flex-col">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50">
+      Skip to main content
+    </a>
+    
+    <!-- Header -->
+    <Header />
+    
+    <!-- Main Content -->
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <Footer />
+  </div>
+
+  <!-- Global Scripts -->
+  <script>
+    // Dark mode toggle functionality
+    function initDarkMode() {
+      const isDark = localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    
+    // Initialize dark mode
+    initDarkMode();
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initDarkMode);
+    
+    // Smooth scroll for anchor links
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (href === '#') return;
+          
+          const target = href ? document.querySelector(href) : null;
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Add loading animation to images
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      images.forEach(img => {
+        img.addEventListener('load', () => {
+          img.classList.add('animate-fade-in');
+        });
+      });
+      
+      // Newsletter form handling (placeholder)
+      const newsletterForm = document.querySelector('footer form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailInput = newsletterForm.querySelector('input[type="email"]') as HTMLInputElement;
+          const email = emailInput?.value;
+          if (email) {
+            alert('Thank you for subscribing! (This is a demo - no email was actually sent)');
+            (newsletterForm as HTMLFormElement).reset();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

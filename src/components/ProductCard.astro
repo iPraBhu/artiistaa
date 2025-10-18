@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import Badge from './Badge.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { formatPrice, getProductBadges } from '@/utils/helpers';
+import type { ProductFrontmatter } from '@/types';
+
+interface Props {
+  product: ProductFrontmatter & { url: string };
+  variant?: 'grid' | 'list' | 'featured';
+  showDescription?: boolean;
+  className?: string;
+}
+
+const { product, variant = 'grid', showDescription = false, className = '' } = Astro.props;
+
+const badges = getProductBadges(product);
+const price = formatPrice(product.price, product.currency);
+
+// Determine if product is available
+const isAvailable = product.in_stock !== false;
+---
+
+<article 
+  class={`group bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200 dark:border-neutral-700 overflow-hidden ${
+    variant === 'featured' ? 'lg:flex lg:items-center' : ''
+  } ${className}`}
+  itemscope 
+  itemtype="https://schema.org/Product"
+>
+  <!-- Product Image -->
+  <div class={`relative overflow-hidden ${
+    variant === 'grid' ? 'aspect-square' 
+    : variant === 'list' ? 'w-full sm:w-48 aspect-square sm:aspect-[4/3]'
+    : variant === 'featured' ? 'lg:w-1/2 aspect-square lg:aspect-[4/3]'
+    : 'aspect-square'
+  }`}>
+    <a href={product.url} class="block w-full h-full">
+      {product.images?.[0] ? (
+        <img
+          src={product.images[0]}
+          alt={product.title}
+          loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          itemprop="image"
+        />
+      ) : (
+        <div class="w-full h-full bg-neutral-100 dark:bg-neutral-700 flex items-center justify-center">
+          <svg class="w-16 h-16 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+      )}
+    </a>
+    
+    <!-- Badges Overlay -->
+    {badges.length > 0 && (
+      <div class="absolute top-3 left-3 z-10">
+        <Badge badges={badges} size="sm" />
+      </div>
+    )}
+    
+    <!-- Stock status overlay -->
+    {!isAvailable && (
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <span class="text-white font-semibold text-lg">Out of Stock</span>
+      </div>
+    )}
+  </div>
+
+  <!-- Product Details -->
+  <div class={`p-4 ${
+    variant === 'featured' ? 'lg:w-1/2 lg:p-8' : ''
+  } ${
+    variant === 'list' ? 'flex-1' : ''
+  }`}>
+    <!-- Title and Price -->
+    <div class="mb-3">
+      <h3 class="font-serif font-semibold text-lg text-neutral-900 dark:text-neutral-100 mb-1 group-hover:text-primary-600 transition-colors line-clamp-2" itemprop="name">
+        <a href={product.url} class="hover:underline">
+          {product.title}
+        </a>
+      </h3>
+      
+      <div class="flex items-center justify-between">
+        <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <span class="text-xl font-bold text-primary-600" itemprop="price" data-content={product.price.toString()}>
+            {price}
+          </span>
+          <meta itemprop="priceCurrency" content={product.currency || 'INR'} />
+          <meta itemprop="availability" content={isAvailable ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'} />
+        </div>
+        
+        {product.sku && (
+          <span class="text-sm text-neutral-500 dark:text-neutral-400" itemprop="sku">
+            SKU: {product.sku}
+          </span>
+        )}
+      </div>
+    </div>
+
+    <!-- Description -->
+    {(showDescription || variant === 'featured') && product.short && (
+      <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4 line-clamp-3" itemprop="description">
+        {product.short}
+      </p>
+    )}
+
+    <!-- Categories/Tags -->
+    {variant !== 'grid' && (product.categories || product.tags) && (
+      <div class="mb-4">
+        {product.categories && (
+          <div class="flex flex-wrap gap-1 mb-2">
+            {product.categories.slice(0, 2).map((category) => (
+              <a 
+                href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                class="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 rounded-full hover:bg-primary-100 hover:text-primary-700 transition-colors"
+              >
+                {category}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- Action Buttons -->
+    <div class={`flex gap-2 ${
+      variant === 'list' ? 'flex-col sm:flex-row' : 'flex-col'
+    }`}>
+      {isAvailable ? (
+        <>
+          <WhatsAppButton 
+            product={product} 
+            variant={variant === 'featured' ? 'default' : 'compact'} 
+            className="flex-1"
+          />
+          <a 
+            href={product.url}
+            class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:hover:bg-primary-900/30 border border-primary-200 dark:border-primary-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+          >
+            View Details
+          </a>
+        </>
+      ) : (
+        <button 
+          disabled
+          class="w-full px-4 py-2 text-sm font-medium text-neutral-500 bg-neutral-100 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 rounded-lg cursor-not-allowed"
+        >
+          Out of Stock
+        </button>
+      )}
+    </div>
+  </div>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.title,
+    "image": product.images?.[0] || '',
+    "description": product.short,
+    "sku": product.sku,
+    "offers": {
+      "@type": "Offer",
+      "url": `https://store.pratik-bhuite.com${product.url}`,
+      "priceCurrency": product.currency || 'INR',
+      "price": product.price,
+      "availability": isAvailable ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+    }
+  })} />
+</article>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
