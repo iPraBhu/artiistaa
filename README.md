@@ -2,7 +2,7 @@
 
 A beautiful, mobile-first e-commerce storefront for handmade art and craft products from India. Built with Astro, TypeScript, Tailwind CSS, and optimized for GitHub Pages deployment.
 
-![Artiistaa Screenshot](https://via.placeholder.com/800x400/d9563f/ffffff?text=Artiistaa+Store)
+
 
 ## ✨ Features
 
