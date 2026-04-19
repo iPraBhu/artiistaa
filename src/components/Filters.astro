@@ -9,10 +9,10 @@ const { categories, tags, className = '' } = Astro.props;
 ---
 
 <div class={`filters-container ${className}`}>
-  <div class="bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 p-6 shadow-sm">
+  <div class="bg-white  rounded-xl border border-neutral-200  p-6 shadow-sm">
     <!-- Filter Header -->
     <div class="flex items-center justify-between mb-4">
-      <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+      <h3 class="text-lg font-semibold text-neutral-900 ">
         Filters
       </h3>
       <button 
@@ -32,12 +32,12 @@ const { categories, tags, className = '' } = Astro.props;
 
     <!-- Sort Options -->
     <div class="mb-6">
-      <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+      <label class="block text-sm font-medium text-neutral-700  mb-2">
         Sort by Price
       </label>
       <select 
         id="price-sort"
-        class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+        class="w-full px-3 py-2 border border-neutral-300  rounded-lg bg-white  text-neutral-900  focus:outline-none focus:ring-2 focus:ring-primary-500"
       >
         <option value="">Default</option>
         <option value="asc">Price: Low to High</option>
@@ -47,7 +47,7 @@ const { categories, tags, className = '' } = Astro.props;
 
     <!-- Price Range -->
     <div class="mb-6">
-      <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+      <label class="block text-sm font-medium text-neutral-700  mb-2">
         Price Range (₹)
       </label>
       <div class="grid grid-cols-2 gap-2">
@@ -56,14 +56,14 @@ const { categories, tags, className = '' } = Astro.props;
           id="price-min"
           placeholder="Min"
           min="0"
-          class="px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          class="px-3 py-2 border border-neutral-300  rounded-lg bg-white  text-neutral-900  focus:outline-none focus:ring-2 focus:ring-primary-500"
         />
         <input 
           type="number"
           id="price-max"
           placeholder="Max"
           min="0"
-          class="px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          class="px-3 py-2 border border-neutral-300  rounded-lg bg-white  text-neutral-900  focus:outline-none focus:ring-2 focus:ring-primary-500"
         />
       </div>
     </div>
@@ -71,7 +71,7 @@ const { categories, tags, className = '' } = Astro.props;
     <!-- Categories Filter -->
     {categories.length > 0 && (
       <div class="mb-6">
-        <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+        <label class="block text-sm font-medium text-neutral-700  mb-3">
           Categories
         </label>
         <div class="space-y-2 max-h-40 overflow-y-auto">
@@ -83,7 +83,7 @@ const { categories, tags, className = '' } = Astro.props;
                 value={category}
                 class="rounded border-neutral-300 text-primary-600 focus:ring-primary-500 focus:ring-offset-0"
               />
-              <span class="ml-2 text-sm text-neutral-700 dark:text-neutral-300">
+              <span class="ml-2 text-sm text-neutral-700 ">
                 {category}
               </span>
             </label>
@@ -95,7 +95,7 @@ const { categories, tags, className = '' } = Astro.props;
     <!-- Tags Filter -->
     {tags.length > 0 && (
       <div class="mb-6">
-        <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+        <label class="block text-sm font-medium text-neutral-700  mb-3">
           Tags
         </label>
         <div class="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
@@ -107,7 +107,7 @@ const { categories, tags, className = '' } = Astro.props;
                 value={tag}
                 class="sr-only peer"
               />
-              <span class="px-3 py-1 text-sm border border-neutral-300 dark:border-neutral-600 rounded-full cursor-pointer transition-colors peer-checked:bg-primary-100 peer-checked:border-primary-500 peer-checked:text-primary-700 hover:bg-neutral-50 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-400">
+              <span class="px-3 py-1 text-sm border border-neutral-300  rounded-full cursor-pointer transition-colors peer-checked:bg-primary-100 peer-checked:border-primary-500 peer-checked:text-primary-700 hover:bg-neutral-50  text-neutral-600 ">
                 {tag}
               </span>
             </label>
@@ -118,7 +118,7 @@ const { categories, tags, className = '' } = Astro.props;
 
     <!-- Stock Filter -->
     <div class="mb-6">
-      <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+      <label class="block text-sm font-medium text-neutral-700  mb-3">
         Availability
       </label>
       <label class="flex items-center">
@@ -127,7 +127,7 @@ const { categories, tags, className = '' } = Astro.props;
           id="in-stock-only"
           class="rounded border-neutral-300 text-primary-600 focus:ring-primary-500 focus:ring-offset-0"
         />
-        <span class="ml-2 text-sm text-neutral-700 dark:text-neutral-300">
+        <span class="ml-2 text-sm text-neutral-700 ">
           In stock only
         </span>
       </label>
@@ -135,7 +135,7 @@ const { categories, tags, className = '' } = Astro.props;
 
     <!-- Special Items Filter -->
     <div>
-      <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+      <label class="block text-sm font-medium text-neutral-700  mb-3">
         Special Items
       </label>
       <div class="space-y-2">
@@ -146,7 +146,7 @@ const { categories, tags, className = '' } = Astro.props;
             value="featured"
             class="rounded border-neutral-300 text-primary-600 focus:ring-primary-500 focus:ring-offset-0"
           />
-          <span class="ml-2 text-sm text-neutral-700 dark:text-neutral-300">
+          <span class="ml-2 text-sm text-neutral-700 ">
             Featured Items
           </span>
         </label>
@@ -157,7 +157,7 @@ const { categories, tags, className = '' } = Astro.props;
             value="bestseller"
             class="rounded border-neutral-300 text-primary-600 focus:ring-primary-500 focus:ring-offset-0"
           />
-          <span class="ml-2 text-sm text-neutral-700 dark:text-neutral-300">
+          <span class="ml-2 text-sm text-neutral-700 ">
             Best Sellers
           </span>
         </label>
@@ -168,7 +168,7 @@ const { categories, tags, className = '' } = Astro.props;
             value="new"
             class="rounded border-neutral-300 text-primary-600 focus:ring-primary-500 focus:ring-offset-0"
           />
-          <span class="ml-2 text-sm text-neutral-700 dark:text-neutral-300">
+          <span class="ml-2 text-sm text-neutral-700 ">
             New Arrivals
           </span>
         </label>
@@ -179,7 +179,7 @@ const { categories, tags, className = '' } = Astro.props;
             value="limited"
             class="rounded border-neutral-300 text-primary-600 focus:ring-primary-500 focus:ring-offset-0"
           />
-          <span class="ml-2 text-sm text-neutral-700 dark:text-neutral-300">
+          <span class="ml-2 text-sm text-neutral-700 ">
             Limited Edition
           </span>
         </label>
@@ -188,7 +188,7 @@ const { categories, tags, className = '' } = Astro.props;
   </div>
 
   <!-- Results Info -->
-  <div id="results-info" class="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+  <div id="results-info" class="mt-4 text-sm text-neutral-600 ">
     <!-- Results count will be shown here -->
   </div>
 </div>
@@ -197,7 +197,6 @@ const { categories, tags, className = '' } = Astro.props;
   document.addEventListener('DOMContentLoaded', () => {
     const clearFiltersBtn = document.getElementById('clear-filters');
     const activeFiltersContainer = document.getElementById('active-filters');
-    const resultsInfo = document.getElementById('results-info');
     const priceSort = document.getElementById('price-sort') as HTMLSelectElement;
     const priceMin = document.getElementById('price-min') as HTMLInputElement;
     const priceMax = document.getElementById('price-max') as HTMLInputElement;
@@ -220,11 +219,11 @@ const { categories, tags, className = '' } = Astro.props;
     };
     
     // Debounce function for price inputs
-    function debounce<T extends (...args: any[]) => any>(func: T, wait: number) {
+    function debounce<T extends (...args: unknown[]) => unknown>(func: T, wait: number) {
       let timeout: ReturnType<typeof setTimeout>;
       return (...args: Parameters<T>) => {
         clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(null, args), wait);
+        timeout = setTimeout(() => func(...args), wait);
       };
     }
     
@@ -236,7 +235,7 @@ const { categories, tags, className = '' } = Astro.props;
       
       // Add category filters
       activeFilters.categories.forEach(category => {
-        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/20 dark:text-primary-400">
+        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800  ">
           Category: ${category}
           <button type="button" class="ml-1 hover:text-primary-600" data-remove-filter="category:${category}">
             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -248,7 +247,7 @@ const { categories, tags, className = '' } = Astro.props;
       
       // Add tag filters
       activeFilters.tags.forEach(tag => {
-        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-100 text-accent-800 dark:bg-accent-900/20 dark:text-accent-400">
+        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-100 text-accent-800  ">
           Tag: ${tag}
           <button type="button" class="ml-1 hover:text-accent-600" data-remove-filter="tag:${tag}">
             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -260,7 +259,7 @@ const { categories, tags, className = '' } = Astro.props;
       
       // Add special filters
       activeFilters.special.forEach(special => {
-        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300">
+        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800  ">
           ${special.charAt(0).toUpperCase() + special.slice(1)}
           <button type="button" class="ml-1 hover:text-neutral-600" data-remove-filter="special:${special}">
             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -274,7 +273,7 @@ const { categories, tags, className = '' } = Astro.props;
       if (activeFilters.priceMin || activeFilters.priceMax) {
         const min = activeFilters.priceMin || '0';
         const max = activeFilters.priceMax || '∞';
-        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
+        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800  ">
           ₹${min} - ₹${max}
           <button type="button" class="ml-1 hover:text-blue-600" data-remove-filter="price">
             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -286,7 +285,7 @@ const { categories, tags, className = '' } = Astro.props;
       
       // Add in-stock filter
       if (activeFilters.inStockOnly) {
-        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400">
+        filterTags.push(`<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800  ">
           In Stock Only
           <button type="button" class="ml-1 hover:text-green-600" data-remove-filter="inStockOnly">
             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -322,21 +321,24 @@ const { categories, tags, className = '' } = Astro.props;
       const [type, value] = filter.split(':');
       
       switch (type) {
-        case 'category':
+        case 'category': {
           activeFilters.categories = activeFilters.categories.filter(c => c !== value);
           const categoryInput = document.querySelector(`input[name="category"][value="${value}"]`) as HTMLInputElement;
           if (categoryInput) categoryInput.checked = false;
           break;
-        case 'tag':
+        }
+        case 'tag': {
           activeFilters.tags = activeFilters.tags.filter(t => t !== value);
           const tagInput = document.querySelector(`input[name="tag"][value="${value}"]`) as HTMLInputElement;
           if (tagInput) tagInput.checked = false;
           break;
-        case 'special':
+        }
+        case 'special': {
           activeFilters.special = activeFilters.special.filter(s => s !== value);
           const specialInput = document.querySelector(`input[name="special"][value="${value}"]`) as HTMLInputElement;
           if (specialInput) specialInput.checked = false;
           break;
+        }
         case 'price':
           activeFilters.priceMin = '';
           activeFilters.priceMax = '';
@@ -472,10 +474,5 @@ const { categories, tags, className = '' } = Astro.props;
       });
     }
     
-    // Update results count when filters change
-    document.addEventListener('filtersChanged', (e: any) => {
-      // This will be handled by the product grid component
-      console.log('Filters changed:', e.detail);
-    });
   });
 </script>

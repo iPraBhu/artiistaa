@@ -14,15 +14,15 @@ featured: false
 new: false
 bestseller: true
 limited: false
-specifications:
+specs:
   material: "92.5% Sterling Silver (Oxidized)"
   dimensions: "4.5cm length x 3cm width"
   weight: "18g per pair"
   closure: "Fish Hook"
   origin: "Jaipur, Rajasthan"
 seo:
-  meta_title: "DEMO Silver Oxidized Jhumka Earrings - Traditional Rajasthani Jewelry"
-  meta_description: "Adorn yourself with these handcrafted oxidized silver jhumkas featuring traditional Rajasthani motifs."
+  title: "DEMO Silver Oxidized Jhumka Earrings - Traditional Rajasthani Jewelry"
+  description: "Adorn yourself with these handcrafted oxidized silver jhumkas featuring traditional Rajasthani motifs."
   focus_keyword: "oxidized silver jhumka earrings"
 ---
 

@@ -14,15 +14,15 @@ featured: false
 new: true
 bestseller: false
 limited: true
-specifications:
+specs:
   material: "100% Cotton"
   dimensions: "180cm x 40cm"
   weight: "320g"
   technique: "Hand Block Printing"
   origin: "Jaipur, Rajasthan"
 seo:
-  meta_title: "DEMO Handwoven Indigo Block Print Table Runner - Traditional Textile"
-  meta_description: "Transform your dining space with this handwoven indigo block print table runner from Rajasthan artisans."
+  title: "DEMO Handwoven Indigo Block Print Table Runner - Traditional Textile"
+  description: "Transform your dining space with this handwoven indigo block print table runner from Rajasthan artisans."
   focus_keyword: "indigo block print table runner"
 ---
 

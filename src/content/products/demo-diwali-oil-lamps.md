@@ -14,15 +14,15 @@ featured: true
 new: false
 bestseller: true
 limited: false
-specifications:
+specs:
   material: "Natural Terracotta Clay"
   set_includes: "12 Diyas + Cotton Wicks"
   dimensions: "Each diya: 8cm diameter x 2.5cm height"
   weight: "1.2kg for complete set"
   origin: "Khurja, Uttar Pradesh"
 seo:
-  meta_title: "DEMO Terracotta Oil Lamp Set - Traditional Diwali Diyas"
-  meta_description: "Celebrate Diwali with authentic handcrafted terracotta oil lamps from traditional pottery artisans."
+  title: "DEMO Terracotta Oil Lamp Set - Traditional Diwali Diyas"
+  description: "Celebrate Diwali with authentic handcrafted terracotta oil lamps from traditional pottery artisans."
   focus_keyword: "terracotta oil lamps diwali"
 ---
 

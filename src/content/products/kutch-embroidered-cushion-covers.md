@@ -15,7 +15,7 @@ featured: false
 new: true
 bestseller: true
 limited: true
-specifications:
+specs:
   material: "100% Cotton Base with Silk Thread"
   dimensions: "45cm x 45cm (Set of 2)"
   embroidery: "Hand Embroidered with Mirror Work"
@@ -23,8 +23,8 @@ specifications:
   care: "Dry Clean Only"
   origin: "Kutch, Gujarat"
 seo:
-  meta_title: "Kutch Mirror Work Cushion Covers - Authentic Gujarati Embroidery"
-  meta_description: "Beautiful handembroidered cushion covers from Kutch with traditional mirror work by women artisans."
+  title: "Kutch Mirror Work Cushion Covers - Authentic Gujarati Embroidery"
+  description: "Beautiful handembroidered cushion covers from Kutch with traditional mirror work by women artisans."
   focus_keyword: "kutch embroidered cushion covers"
 ---
 

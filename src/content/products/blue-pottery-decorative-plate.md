@@ -15,7 +15,7 @@ featured: true
 new: false
 bestseller: false
 limited: true
-specifications:
+specs:
   material: "Glazed Ceramic with Cobalt Blue"
   dimensions: "30cm diameter"
   thickness: "2cm"
@@ -23,8 +23,8 @@ specifications:
   technique: "Hand-painted with Traditional Brushes"
   origin: "Jaipur, Rajasthan"
 seo:
-  meta_title: "Jaipur Blue Pottery Decorative Plate - Traditional Rajasthani Craft"
-  meta_description: "Beautiful handpainted blue pottery plate from Jaipur artisans, perfect for wall decoration or serving."
+  title: "Jaipur Blue Pottery Decorative Plate - Traditional Rajasthani Craft"
+  description: "Beautiful handpainted blue pottery plate from Jaipur artisans, perfect for wall decoration or serving."
   focus_keyword: "jaipur blue pottery plate"
 ---
 

@@ -1,8 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import Badge from './Badge.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
-import { formatPrice, getProductBadges } from '@/utils/helpers';
+import { formatPrice, getProductBadges, slugify, toAbsoluteUrl } from '@/utils/helpers';
 import type { ProductFrontmatter } from '@/types';
 
 interface Props {
@@ -22,14 +21,16 @@ const isAvailable = product.in_stock !== false;
 ---
 
 <article 
-  class={`group bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200 dark:border-neutral-700 overflow-hidden ${
+  data-product-card
+  data-variant={variant}
+  class={`group bg-white  rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200  overflow-hidden ${
     variant === 'featured' ? 'lg:flex lg:items-center' : ''
   } ${className}`}
   itemscope 
   itemtype="https://schema.org/Product"
 >
   <!-- Product Image -->
-  <div class={`relative overflow-hidden ${
+  <div class={`product-card-image relative overflow-hidden ${
     variant === 'grid' ? 'aspect-square' 
     : variant === 'list' ? 'w-full sm:w-48 aspect-square sm:aspect-[4/3]'
     : variant === 'featured' ? 'lg:w-1/2 aspect-square lg:aspect-[4/3]'
@@ -45,7 +46,7 @@ const isAvailable = product.in_stock !== false;
           itemprop="image"
         />
       ) : (
-        <div class="w-full h-full bg-neutral-100 dark:bg-neutral-700 flex items-center justify-center">
+        <div class="w-full h-full bg-neutral-100  flex items-center justify-center">
           <svg class="w-16 h-16 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
@@ -69,14 +70,14 @@ const isAvailable = product.in_stock !== false;
   </div>
 
   <!-- Product Details -->
-  <div class={`p-4 ${
+  <div class={`product-card-content p-4 ${
     variant === 'featured' ? 'lg:w-1/2 lg:p-8' : ''
   } ${
     variant === 'list' ? 'flex-1' : ''
   }`}>
     <!-- Title and Price -->
     <div class="mb-3">
-      <h3 class="font-serif font-semibold text-lg text-neutral-900 dark:text-neutral-100 mb-1 group-hover:text-primary-600 transition-colors line-clamp-2" itemprop="name">
+      <h3 class="font-serif font-semibold text-lg text-neutral-900  mb-1 group-hover:text-primary-600 transition-colors line-clamp-2" itemprop="name">
         <a href={product.url} class="hover:underline">
           {product.title}
         </a>
@@ -92,7 +93,7 @@ const isAvailable = product.in_stock !== false;
         </div>
         
         {product.sku && (
-          <span class="text-sm text-neutral-600 dark:text-neutral-300 font-medium" itemprop="sku">
+          <span class="text-sm text-neutral-600  font-medium" itemprop="sku">
             SKU: {product.sku}
           </span>
         )}
@@ -101,7 +102,7 @@ const isAvailable = product.in_stock !== false;
 
     <!-- Description -->
     {(showDescription || variant === 'featured') && product.short && (
-      <p class="text-neutral-700 dark:text-neutral-300 text-sm mb-4 line-clamp-3 font-medium" itemprop="description">
+      <p class="text-neutral-700  text-sm mb-4 line-clamp-3 font-medium" itemprop="description">
         {product.short}
       </p>
     )}
@@ -113,8 +114,8 @@ const isAvailable = product.in_stock !== false;
           <div class="flex flex-wrap gap-1 mb-2">
             {product.categories.slice(0, 2).map((category) => (
               <a 
-                href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
-                class="text-xs px-2 py-1 bg-neutral-200 dark:bg-neutral-600 text-neutral-700 dark:text-neutral-200 rounded-full hover:bg-primary-100 hover:text-primary-800 transition-colors font-medium"
+                href={`/category/${slugify(category)}`}
+                class="text-xs px-2 py-1 bg-neutral-200  text-neutral-700  rounded-full hover:bg-primary-100 hover:text-primary-800 transition-colors font-medium"
               >
                 {category}
               </a>
@@ -137,7 +138,7 @@ const isAvailable = product.in_stock !== false;
           />
           <a 
             href={product.url}
-            class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:hover:bg-primary-900/30 border border-primary-200 dark:border-primary-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+            class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 hover:bg-primary-100   border border-primary-200  rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
           >
             View Details
           </a>
@@ -145,7 +146,7 @@ const isAvailable = product.in_stock !== false;
       ) : (
         <button 
           disabled
-          class="w-full px-4 py-2 text-sm font-medium text-neutral-500 bg-neutral-100 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 rounded-lg cursor-not-allowed"
+          class="w-full px-4 py-2 text-sm font-medium text-neutral-500 bg-neutral-100  border border-neutral-300  rounded-lg cursor-not-allowed"
         >
           Out of Stock
         </button>
@@ -154,16 +155,16 @@ const isAvailable = product.in_stock !== false;
   </div>
 
   <!-- Structured Data -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.title,
-    "image": product.images?.[0] || '',
+    "image": toAbsoluteUrl(product.images?.[0] || '/images/placeholder.png'),
     "description": product.short,
     "sku": product.sku,
     "offers": {
       "@type": "Offer",
-      "url": `https://store.pratik-bhuite.com${product.url}`,
+      "url": toAbsoluteUrl(product.url),
       "priceCurrency": product.currency || 'INR',
       "price": product.price,
       "availability": isAvailable ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
@@ -184,5 +185,31 @@ const isAvailable = product.in_stock !== false;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  [data-product-card][data-variant="list"] {
+    display: flex;
+    align-items: stretch;
+  }
+
+  [data-product-card][data-variant="list"] .product-card-image {
+    width: 12rem;
+    flex-shrink: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  [data-product-card][data-variant="list"] .product-card-content {
+    flex: 1;
+  }
+
+  @media (max-width: 640px) {
+    [data-product-card][data-variant="list"] {
+      display: block;
+    }
+
+    [data-product-card][data-variant="list"] .product-card-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
   }
 </style>

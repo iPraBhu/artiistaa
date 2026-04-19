@@ -14,15 +14,15 @@ featured: false
 new: true
 bestseller: false
 limited: false
-specifications:
+specs:
   material: "Bamboo & Coconut Shells"
   dimensions: "60cm height x 15cm width"
   weight: "450g"
   tubes: "7 Bamboo Tubes"
   origin: "Kerala, India"
 seo:
-  meta_title: "DEMO Bamboo Wind Chime with Coconut Shells - Eco-Friendly Garden Decor"
-  meta_description: "Create peaceful ambiance with this handcrafted bamboo wind chime featuring natural coconut shell accents."
+  title: "DEMO Bamboo Wind Chime with Coconut Shells - Eco-Friendly Garden Decor"
+  description: "Create peaceful ambiance with this handcrafted bamboo wind chime featuring natural coconut shell accents."
   focus_keyword: "bamboo wind chime coconut shell"
 ---
 

@@ -15,7 +15,7 @@ featured: true
 new: true
 bestseller: false
 limited: false
-specifications:
+specs:
   material: "Sheesham Wood (Indian Rosewood)"
   dimensions: "60cm x 45cm"
   mirror_size: "35cm x 25cm"
@@ -23,8 +23,8 @@ specifications:
   weight: "2.5kg"
   origin: "Saharanpur, Uttar Pradesh"
 seo:
-  meta_title: "Handcarved Sheesham Wood Mirror Frame - Traditional Indian Woodcraft"
-  meta_description: "Beautiful handcarved mirror frame made by skilled artisans from Saharanpur, crafted from premium sheesham wood."
+  title: "Handcarved Sheesham Wood Mirror Frame - Traditional Indian Woodcraft"
+  description: "Beautiful handcarved mirror frame made by skilled artisans from Saharanpur, crafted from premium sheesham wood."
   focus_keyword: "handcarved wooden mirror frame"
 ---
 

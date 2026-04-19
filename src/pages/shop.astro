@@ -4,16 +4,16 @@ import ProductCard from '@/components/ProductCard.astro';
 import SearchBar from '@/components/SearchBar.astro';
 import Filters from '@/components/Filters.astro';
 import { SITE_CONFIG } from '@/utils/constants';
-import { generateSEO, getUniqueCategories, getUniqueTags } from '@/utils/helpers';
+import { generateSEO, getUniqueCategories, getUniqueTags, slugify, toAbsoluteUrl } from '@/utils/helpers';
 import { getCollection } from 'astro:content';
 
 // Load all products from content collection
 const allProducts = await getCollection('products');
 const products = allProducts.map(product => ({
   ...product.data,
-  slug: product.slug,
+  slug: product.id,
   content: product.body,
-  url: `/products/${product.slug}`,
+  url: `/products/${product.id}`,
 }));
 
 // Get unique categories and tags for filters
@@ -25,17 +25,49 @@ const seo = generateSEO({
   title: `Shop All Products`,
   description: `Browse our complete collection of handmade art and craft items from skilled artisans across India.`,
 });
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${SITE_CONFIG.STORE_NAME} Products`,
+  numberOfItems: products.length,
+  itemListElement: products.map((product, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: toAbsoluteUrl(product.url),
+    name: product.title,
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: toAbsoluteUrl('/'),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Shop',
+      item: toAbsoluteUrl('/shop'),
+    },
+  ],
+};
 ---
 
 <BaseLayout seo={seo}>
   <!-- Page Header -->
-  <section class="bg-neutral-50 dark:bg-neutral-800 py-12">
+  <section class="bg-neutral-50  py-12">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900  mb-4">
           Our Complete Collection
         </h1>
-        <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+        <p class="text-lg text-neutral-600  mb-8">
           Discover beautiful handmade treasures crafted with love by skilled artisans across India.
         </p>
         
@@ -63,19 +95,19 @@ const seo = generateSEO({
           <!-- Results Header -->
           <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
             <div>
-              <h2 class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
+              <h2 class="text-2xl font-semibold text-neutral-900 ">
                 All Products
               </h2>
-              <p id="results-count" class="text-neutral-600 dark:text-neutral-400 mt-1">
+              <p id="results-count" class="text-neutral-600  mt-1">
                 {products.length === 0 ? 'No products yet - coming soon!' : `Showing ${products.length} products`}
               </p>
             </div>
             
             <!-- View Toggle (Desktop) -->
-            <div class="hidden sm:flex items-center space-x-2 bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 p-1">
+            <div class="hidden sm:flex items-center space-x-2 bg-white  rounded-lg border border-neutral-200  p-1">
               <button 
                 id="grid-view" 
-                class="p-2 rounded-md bg-primary-100 text-primary-700 dark:bg-primary-900/20 dark:text-primary-400"
+                class="p-2 rounded-md bg-primary-100 text-primary-700  "
                 aria-label="Grid view"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -84,7 +116,7 @@ const seo = generateSEO({
               </button>
               <button 
                 id="list-view" 
-                class="p-2 rounded-md text-neutral-500 hover:text-primary-700 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors"
+                class="p-2 rounded-md text-neutral-500 hover:text-primary-700 hover:bg-primary-50  transition-colors"
                 aria-label="List view"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -97,16 +129,15 @@ const seo = generateSEO({
           <!-- Products Container -->
           <div id="products-container" class="products-grid">
             {products.length === 0 ? (
-              <!-- Empty State -->
               <div class="col-span-full py-16 text-center">
                 <div class="max-w-md mx-auto">
-                  <svg class="w-24 h-24 mx-auto text-neutral-300 dark:text-neutral-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-24 h-24 mx-auto text-neutral-300  mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M8 4l8 4" />
                   </svg>
-                  <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+                  <h3 class="text-xl font-semibold text-neutral-900  mb-2">
                     Products Coming Soon
                   </h3>
-                  <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+                  <p class="text-neutral-600  mb-6">
                     We're currently adding our beautiful collection of handmade crafts. Check back soon!
                   </p>
                   <a 
@@ -124,7 +155,19 @@ const seo = generateSEO({
               </div>
             ) : (
               products.map((product) => (
-                <ProductCard product={product} />
+                <div
+                  class="shop-product-item"
+                  data-categories={product.categories.map((category: string) => slugify(category)).join('|')}
+                  data-tags={product.tags.map((tag: string) => slugify(tag)).join('|')}
+                  data-price={product.price}
+                  data-in-stock={product.in_stock !== false ? 'true' : 'false'}
+                  data-featured={product.featured ? 'true' : 'false'}
+                  data-bestseller={product.bestseller ? 'true' : 'false'}
+                  data-new={product.new ? 'true' : 'false'}
+                  data-limited={product.limited ? 'true' : 'false'}
+                >
+                  <ProductCard product={product} />
+                </div>
               ))
             )}
           </div>
@@ -134,7 +177,7 @@ const seo = generateSEO({
             <div class="text-center mt-12">
               <button 
                 id="load-more"
-                class="px-8 py-3 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 font-medium rounded-lg transition-colors"
+                class="px-8 py-3 border border-neutral-300  text-neutral-700  hover:bg-neutral-50  font-medium rounded-lg transition-colors"
               >
                 Load More Products
               </button>
@@ -144,6 +187,9 @@ const seo = generateSEO({
       </div>
     </div>
   </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>
 
 <style>
@@ -169,51 +215,145 @@ const seo = generateSEO({
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    interface FilterState {
+      categories: string[];
+      tags: string[];
+      special: string[];
+      priceSort: '' | 'asc' | 'desc';
+      priceMin: string;
+      priceMax: string;
+      inStockOnly: boolean;
+    }
+
+    const defaultFilters: FilterState = {
+      categories: [],
+      tags: [],
+      special: [],
+      priceSort: '',
+      priceMin: '',
+      priceMax: '',
+      inStockOnly: false,
+    };
+
     const gridViewBtn = document.getElementById('grid-view');
     const listViewBtn = document.getElementById('list-view');
     const productsContainer = document.getElementById('products-container');
+    const resultsCount = document.getElementById('results-count');
+    const productItems = Array.from(document.querySelectorAll('.shop-product-item')) as HTMLDivElement[];
+    let activeFilters: FilterState = { ...defaultFilters };
     
+    function setView(view: 'grid' | 'list') {
+      if (!gridViewBtn || !listViewBtn || !productsContainer) return;
+
+      const isList = view === 'list';
+      productsContainer.className = isList ? 'products-list' : 'products-grid';
+
+      const selectedButton = isList ? listViewBtn : gridViewBtn;
+      const unselectedButton = isList ? gridViewBtn : listViewBtn;
+
+      selectedButton.classList.add('bg-primary-100', 'text-primary-700');
+      selectedButton.classList.remove('text-neutral-500', 'hover:text-primary-700', 'hover:bg-primary-50');
+
+      unselectedButton.classList.remove('bg-primary-100', 'text-primary-700');
+      unselectedButton.classList.add('text-neutral-500', 'hover:text-primary-700', 'hover:bg-primary-50');
+
+      const cards = productsContainer.querySelectorAll('[data-product-card]');
+      cards.forEach((card) => {
+        card.setAttribute('data-variant', view);
+      });
+    }
+
+    function includesAny(haystack: string, needles: string[]): boolean {
+      if (needles.length === 0) return true;
+      const values = haystack.split('|').filter(Boolean);
+      return needles.some((needle) => values.includes(needle));
+    }
+
+    function matchesSpecialFilters(item: HTMLDivElement, filters: FilterState): boolean {
+      if (filters.special.length === 0) return true;
+      return filters.special.every((special) => item.dataset[special] === 'true');
+    }
+
+    function matchesPrice(item: HTMLDivElement, filters: FilterState): boolean {
+      const price = Number(item.dataset.price || 0);
+      const min = Number(filters.priceMin || 0);
+      const max = Number(filters.priceMax || Number.POSITIVE_INFINITY);
+      if (!Number.isFinite(price)) return false;
+      return price >= min && price <= max;
+    }
+
+    function updateResultLabel(visibleCount: number) {
+      if (!resultsCount) return;
+      if (productItems.length === 0) {
+        resultsCount.textContent = 'No products yet - coming soon!';
+        return;
+      }
+      resultsCount.textContent = `Showing ${visibleCount} of ${productItems.length} products`;
+    }
+
+    function applyFilters(filters: FilterState) {
+      const normalizedCategories = filters.categories.map((category) => category.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''));
+      const normalizedTags = filters.tags.map((tag) => tag.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''));
+
+      const visibleItems: HTMLDivElement[] = [];
+
+      productItems.forEach((item) => {
+        const matchesCategory = includesAny(item.dataset.categories || '', normalizedCategories);
+        const matchesTag = includesAny(item.dataset.tags || '', normalizedTags);
+        const matchesStock = !filters.inStockOnly || item.dataset.inStock === 'true';
+        const matchesSpecial = matchesSpecialFilters(item, filters);
+        const matchesPriceRange = matchesPrice(item, filters);
+        const isVisible = matchesCategory && matchesTag && matchesStock && matchesSpecial && matchesPriceRange;
+
+        item.classList.toggle('hidden', !isVisible);
+        if (isVisible) {
+          visibleItems.push(item);
+        }
+      });
+
+      if (filters.priceSort) {
+        const multiplier = filters.priceSort === 'asc' ? 1 : -1;
+        visibleItems
+          .sort((a, b) => {
+            const aPrice = Number(a.dataset.price || 0);
+            const bPrice = Number(b.dataset.price || 0);
+            return (aPrice - bPrice) * multiplier;
+          })
+          .forEach((item) => {
+            productsContainer?.appendChild(item);
+          });
+      }
+
+      updateResultLabel(visibleItems.length);
+    }
+
     // View toggle functionality
-    if (gridViewBtn && listViewBtn && productsContainer) {
-      gridViewBtn.addEventListener('click', () => {
-        productsContainer.className = 'products-grid';
-        gridViewBtn.classList.add('bg-primary-100', 'text-primary-700', 'dark:bg-primary-900/20', 'dark:text-primary-400');
-        gridViewBtn.classList.remove('text-neutral-500', 'hover:text-primary-700', 'hover:bg-primary-50', 'dark:hover:bg-primary-900/10');
-        listViewBtn.classList.remove('bg-primary-100', 'text-primary-700', 'dark:bg-primary-900/20', 'dark:text-primary-400');
-        listViewBtn.classList.add('text-neutral-500', 'hover:text-primary-700', 'hover:bg-primary-50', 'dark:hover:bg-primary-900/10');
-      });
-      
-      listViewBtn.addEventListener('click', () => {
-        productsContainer.className = 'products-list';
-        listViewBtn.classList.add('bg-primary-100', 'text-primary-700', 'dark:bg-primary-900/20', 'dark:text-primary-400');
-        listViewBtn.classList.remove('text-neutral-500', 'hover:text-primary-700', 'hover:bg-primary-50', 'dark:hover:bg-primary-900/10');
-        gridViewBtn.classList.remove('bg-primary-100', 'text-primary-700', 'dark:bg-primary-900/20', 'dark:text-primary-400');
-        gridViewBtn.classList.add('text-neutral-500', 'hover:text-primary-700', 'hover:bg-primary-50', 'dark:hover:bg-primary-900/10');
-        
-        // Update product cards to list variant
-        const productCards = productsContainer.querySelectorAll('[data-product-card]');
-        productCards.forEach(card => {
-          card.setAttribute('data-variant', 'list');
-        });
-      });
+    if (gridViewBtn && listViewBtn) {
+      gridViewBtn.addEventListener('click', () => setView('grid'));
+      listViewBtn.addEventListener('click', () => setView('list'));
     }
     
     // Listen for filter changes
-    document.addEventListener('filtersChanged', (e: any) => {
-      const filters = e.detail;
-      console.log('Applying filters:', filters);
-      
-      // Here you would implement the actual filtering logic
-      // For now, just update the results count
-      const resultsCount = document.getElementById('results-count');
-      if (resultsCount) {
-        // This would be replaced with actual filtering logic
-        resultsCount.textContent = 'Filtering results...';
-        
-        setTimeout(() => {
-          resultsCount.textContent = 'Showing filtered results';
-        }, 500);
-      }
+    document.addEventListener('filtersChanged', (e: Event) => {
+      const customEvent = e as CustomEvent<FilterState>;
+      if (!customEvent.detail) return;
+      activeFilters = { ...defaultFilters, ...customEvent.detail };
+      applyFilters(activeFilters);
     });
+
+    // Support links like /shop?filter=featured
+    const params = new URLSearchParams(window.location.search);
+    const specialFilter = params.get('filter');
+    if (specialFilter) {
+      const selector = `input[name="special"][value="${specialFilter}"]`;
+      const input = document.querySelector(selector) as HTMLInputElement | null;
+      if (input) {
+        input.checked = true;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+
+    setView('grid');
+    applyFilters(activeFilters);
   });
 </script>

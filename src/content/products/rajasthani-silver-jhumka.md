@@ -15,7 +15,7 @@ featured: false
 new: true
 bestseller: false
 limited: false
-specifications:
+specs:
   material: "92.5% Sterling Silver"
   finish: "Traditional Oxidized Black"
   dimensions: "6cm (L) x 3.5cm (W)"
@@ -23,8 +23,8 @@ specifications:
   closure: "Fish Hook"
   origin: "Jaipur, Rajasthan"
 seo:
-  meta_title: "Rajasthani Silver Oxidized Jhumka Earrings - Traditional Tribal Design"
-  meta_description: "Authentic Rajasthani silver jhumka earrings with oxidized finish and handcrafted tribal motifs."
+  title: "Rajasthani Silver Oxidized Jhumka Earrings - Traditional Tribal Design"
+  description: "Authentic Rajasthani silver jhumka earrings with oxidized finish and handcrafted tribal motifs."
   focus_keyword: "rajasthani silver jhumka earrings oxidized"
 ---
 

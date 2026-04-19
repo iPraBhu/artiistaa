@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   // ===============================================================================
   STORE_NAME: 'Artiistaa',
   WHATSAPP_NUMBER_INTL: '+919356944708',
-  CANONICAL_DOMAIN: 'store.pratik-bhuite.com/', // Change this to your domain (e.g., 'yourdomain.com')
+  CANONICAL_DOMAIN: 'store.pratik-bhuite.com', // Change this to your domain (e.g., 'yourdomain.com')
   USE_HTTPS: true, // Set to true for production domains
   // ===============================================================================
   
@@ -33,12 +33,18 @@ export const SITE_CONFIG = {
   // Contact information
   EMAIL: 'hello@artiistaa.com',
   INSTAGRAM: '@artiistaa',
+  TWITTER_HANDLE: '@artiistaa',
+  DEFAULT_OG_IMAGE: '/images/og-default.png',
+  DEFAULT_PRODUCT_IMAGE: '/images/placeholder.png',
   
   // Site URLs
   get SITE_URL() {
     const protocol = this.USE_HTTPS ? 'https' : 'http';
-    return this.CANONICAL_DOMAIN 
-      ? `${protocol}://${this.CANONICAL_DOMAIN}` 
+    const normalizedDomain = this.CANONICAL_DOMAIN
+      .replace(/^https?:\/\//, '')
+      .replace(/\/+$/, '');
+    return normalizedDomain
+      ? `${protocol}://${normalizedDomain}`
       : 'http://localhost:4321';
   },
   

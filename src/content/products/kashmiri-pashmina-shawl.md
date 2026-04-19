@@ -15,7 +15,7 @@ featured: true
 new: false
 bestseller: true
 limited: true
-specifications:
+specs:
   material: "100% Pure Changthangi Goat Pashmina"
   dimensions: "200cm x 100cm"
   technique: "Hand-woven Diamond Weave"
@@ -23,8 +23,8 @@ specifications:
   weight: "180g"
   origin: "Leh-Ladakh, Kashmir"
 seo:
-  meta_title: "Kashmiri Pashmina Shawl Diamond Weave - Pure Changthangi Goat Wool"
-  meta_description: "Luxurious Kashmiri Pashmina shawl with diamond weave from authentic Changthangi goat wool."
+  title: "Kashmiri Pashmina Shawl Diamond Weave - Pure Changthangi Goat Wool"
+  description: "Luxurious Kashmiri Pashmina shawl with diamond weave from authentic Changthangi goat wool."
   focus_keyword: "kashmiri pashmina shawl diamond weave"
 ---
 

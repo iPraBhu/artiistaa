@@ -3,7 +3,7 @@ title: "Dhokra Bronze Dancing Ganesha Figurine"
 sku: "METAL-003"
 price: 3899
 currency: "INR"
-categories: ["Home Decoration", "Spiritual & Religious"]
+categories: ["Home Decor", "Spiritual & Religious"]
 tags: ["dhokra", "bronze", "ganesha", "tribal-art", "lost-wax-casting", "odisha", "chattisgash", "spiritual"]
 images:
   - "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop&q=80"
@@ -15,7 +15,7 @@ featured: true
 new: true
 bestseller: false
 limited: true
-specifications:
+specs:
   material: "Pure Bronze (Brass & Copper Alloy)"
   dimensions: "18cm (H) x 12cm (W) x 8cm (D)"
   technique: "Lost-wax Casting (Cire Perdue)"
@@ -23,8 +23,8 @@ specifications:
   finish: "Antique Patina"
   origin: "Bastar, Chhattisgarh"
 seo:
-  meta_title: "Dhokra Bronze Dancing Ganesha - Tribal Lost-wax Casting Art"
-  meta_description: "Authentic Dhokra bronze Ganesha figurine using 4000-year-old tribal lost-wax casting technique."
+  title: "Dhokra Bronze Dancing Ganesha - Tribal Lost-wax Casting Art"
+  description: "Authentic Dhokra bronze Ganesha figurine using 4000-year-old tribal lost-wax casting technique."
   focus_keyword: "dhokra bronze ganesha figurine"
 ---
 

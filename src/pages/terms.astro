@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { generateSEO } from '@/utils/helpers';
+
+const seo = generateSEO({
+  title: 'Terms of Service',
+  description: 'Read the terms governing purchases and use of the Artiistaa storefront.',
+  type: 'website',
+});
+---
+
+<BaseLayout seo={seo}>
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl mx-auto prose prose-neutral ">
+      <h1>Terms of Service</h1>
+      <p>By using this website, you agree to these terms.</p>
+      <h2>Orders and Payments</h2>
+      <p>Prices, availability, and delivery timelines may change without prior notice.</p>
+      <h2>Returns and Cancellations</h2>
+      <p>Return and cancellation requests are handled case-by-case for handmade products.</p>
+      <h2>Liability</h2>
+      <p>We are not liable for indirect damages arising from use of this site.</p>
+    </div>
+  </section>
+</BaseLayout>

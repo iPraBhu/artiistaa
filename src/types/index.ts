@@ -62,8 +62,13 @@ export interface SEOData {
   title: string;
   description: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   url?: string;
   type?: 'website' | 'product';
+  locale?: string;
+  noindex?: boolean;
   article?: {
     author?: string;
     publishedTime?: string;

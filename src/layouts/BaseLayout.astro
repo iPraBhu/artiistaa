@@ -2,6 +2,8 @@
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import SEOHead from '@/components/SEOHead.astro';
+import { SITE_CONFIG } from '@/utils/constants';
+import { toAbsoluteUrl } from '@/utils/helpers';
 import type { SEOData } from '@/types';
 import '@/styles/global.css';
 
@@ -11,11 +13,58 @@ interface Props {
 }
 
 const { seo, class: className = '' } = Astro.props;
+
+const canonicalFromPath = new URL(
+  Astro.url.pathname,
+  `${SITE_CONFIG.SITE_URL}/`
+).toString();
+
+const resolvedSeo: SEOData = {
+  ...seo,
+  url: seo.url ? toAbsoluteUrl(seo.url) : canonicalFromPath,
+  image: seo.image ? toAbsoluteUrl(seo.image) : toAbsoluteUrl(SITE_CONFIG.DEFAULT_OG_IMAGE),
+  imageAlt: seo.imageAlt || `${SITE_CONFIG.STORE_NAME} handcrafted products`,
+  imageWidth: seo.imageWidth || 1200,
+  imageHeight: seo.imageHeight || 630,
+  locale: seo.locale || SITE_CONFIG.PRIMARY_LOCALE,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_CONFIG.STORE_NAME,
+  url: SITE_CONFIG.SITE_URL,
+  inLanguage: SITE_CONFIG.PRIMARY_LOCALE,
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_CONFIG.STORE_NAME,
+  url: SITE_CONFIG.SITE_URL,
+  email: SITE_CONFIG.EMAIL,
+  sameAs: [
+    `https://instagram.com/${SITE_CONFIG.INSTAGRAM.replace('@', '')}`,
+  ],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      telephone: SITE_CONFIG.WHATSAPP_NUMBER_INTL,
+      areaServed: 'IN',
+      availableLanguage: ['en', 'hi'],
+    },
+  ],
+};
 ---
 
 <html lang="en-IN" class="scroll-smooth">
 <head>
-  <SEOHead seo={seo} />
+  <SEOHead seo={resolvedSeo} />
+  <link rel="alternate" hreflang="en-IN" href={resolvedSeo.url} />
+  <link rel="alternate" hreflang="x-default" href={SITE_CONFIG.SITE_URL} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +74,7 @@ const { seo, class: className = '' } = Astro.props;
 
 </head>
 
-<body class={`bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 ${className}`}>
+<body class={`bg-white text-neutral-900 ${className}`}>
   <div class="min-h-screen flex flex-col">
     <!-- Skip to content link for accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50">
@@ -46,24 +95,6 @@ const { seo, class: className = '' } = Astro.props;
 
   <!-- Global Scripts -->
   <script>
-    // Dark mode toggle functionality
-    function initDarkMode() {
-      const isDark = localStorage.getItem('theme') === 'dark' || 
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-    
-    // Initialize dark mode
-    initDarkMode();
-    
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initDarkMode);
-    
     // Smooth scroll for anchor links
     document.addEventListener('DOMContentLoaded', () => {
       const links = document.querySelectorAll('a[href^="#"]');

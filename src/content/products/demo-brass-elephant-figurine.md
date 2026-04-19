@@ -14,15 +14,15 @@ featured: true
 new: false
 bestseller: false
 limited: false
-specifications:
+specs:
   material: "Solid Brass"
   dimensions: "15cm x 12cm x 8cm"
   weight: "850g"
   finish: "Antique Patina"
   origin: "Moradabad, India"
 seo:
-  meta_title: "DEMO Antique Brass Elephant Figurine - Handcrafted Home Decor"
-  meta_description: "Add elegance to your space with this handcrafted brass elephant figurine from Moradabad artisans."
+  title: "DEMO Antique Brass Elephant Figurine - Handcrafted Home Decor"
+  description: "Add elegance to your space with this handcrafted brass elephant figurine from Moradabad artisans."
   focus_keyword: "brass elephant figurine"
 ---
 

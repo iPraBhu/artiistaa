@@ -14,15 +14,15 @@ featured: false
 new: true
 bestseller: false
 limited: true
-specifications:
+specs:
   material: "Handmade Cotton Paper"
   dimensions: "40cm x 30cm"
   medium: "Natural Pigments & Acrylic"
   frame: "Not Included"
   origin: "Madhubani, Bihar"
 seo:
-  meta_title: "DEMO Madhubani Painting - Traditional Folk Art from Bihar"
-  meta_description: "Own an authentic piece of Madhubani folk art painted by women artisans from Bihar, India."
+  title: "DEMO Madhubani Painting - Traditional Folk Art from Bihar"
+  description: "Own an authentic piece of Madhubani folk art painted by women artisans from Bihar, India."
   focus_keyword: "madhubani painting handmade"
 ---
 

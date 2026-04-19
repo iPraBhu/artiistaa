@@ -3,7 +3,7 @@ title: "Kalamkari Hand-painted Silk Stole - Tree of Life"
 sku: "SILK-010"
 price: 4299
 currency: "INR"
-categories: ["Textiles & Fababs", "Jewelry & Accessories"]
+categories: ["Textiles & Fabrics", "Jewelry & Accessories"]
 tags: ["kalamkari", "silk-stole", "hand-painted", "tree-of-life", "andhra-pradesh", "natural-dyes", "traditional"]
 images:
   - "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&q=80"
@@ -15,7 +15,7 @@ featured: true
 new: true
 bestseller: false
 limited: true
-specifications:
+specs:
   material: "100% Pure Mulberry Silk"
   dimensions: "200cm x 70cm"
   technique: "Hand-painted Kalamkari"
@@ -23,8 +23,8 @@ specifications:
   weight: "150g"
   origin: "Srikalahasti, Andhra Pradesh"
 seo:
-  meta_title: "Kalamkari Silk Stole Tree of Life - Hand-painted Natural Dyes"
-  meta_description: "Exquisite Kalamkari hand-painted silk stole featuring Tree of Life motif, made with natural dyes."
+  title: "Kalamkari Silk Stole Tree of Life - Hand-painted Natural Dyes"
+  description: "Exquisite Kalamkari hand-painted silk stole featuring Tree of Life motif, made with natural dyes."
   focus_keyword: "kalamkari silk stole hand painted"
 ---
 

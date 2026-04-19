@@ -3,6 +3,25 @@ import type { ProductFrontmatter, SEOData, ProductSchema, LocalBusinessSchema } 
 
 // Utility functions for the Artiistaa store
 
+function normalizeBaseUrl(baseUrl: string): string {
+  return baseUrl.replace(/\/+$/, '');
+}
+
+export function toAbsoluteUrl(pathOrUrl: string): string {
+  if (/^https?:\/\//i.test(pathOrUrl)) {
+    return pathOrUrl;
+  }
+  return new URL(pathOrUrl, `${normalizeBaseUrl(SITE_CONFIG.SITE_URL)}/`).toString();
+}
+
+export function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 /**
  * Format price with currency symbol
  */
@@ -23,7 +42,7 @@ export function generateWhatsAppURL(product: ProductFrontmatter & { url: string 
   const message = SITE_CONFIG.WHATSAPP_MESSAGE_TEMPLATE
     .replace('{{product.title}}', product.title)
     .replace('{{product.sku}}', product.sku)
-    .replace('{{product_url}}', `${SITE_CONFIG.SITE_URL}${product.url}`);
+    .replace('{{product_url}}', toAbsoluteUrl(product.url));
   
   const whatsappNumber = SITE_CONFIG.WHATSAPP_NUMBER_INTL.replace('+', '');
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -56,8 +75,11 @@ export function generateSEO(data: Partial<SEOData> & { title: string }): SEOData
     ...data,
     title,
     description: data.description || SITE_CONFIG.DESCRIPTION,
-    image: data.image || '/images/og-default.jpg',
-    url: data.url || SITE_CONFIG.SITE_URL,
+    image: data.image || SITE_CONFIG.DEFAULT_OG_IMAGE,
+    imageAlt: data.imageAlt || `${SITE_CONFIG.STORE_NAME} handcrafted products`,
+    imageWidth: data.imageWidth || 1200,
+    imageHeight: data.imageHeight || 630,
+    url: data.url,
     type: data.type || 'website',
   };
 }
@@ -70,7 +92,7 @@ export function generateProductSchema(product: ProductFrontmatter & { url: strin
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.title,
-    image: product.images.map(img => `${SITE_CONFIG.SITE_URL}${img}`),
+    image: product.images.map((img) => toAbsoluteUrl(img)),
     description: product.short,
     sku: product.sku,
     brand: {
@@ -79,7 +101,7 @@ export function generateProductSchema(product: ProductFrontmatter & { url: strin
     },
     offers: {
       '@type': 'Offer',
-      url: `${SITE_CONFIG.SITE_URL}${product.url}`,
+      url: toAbsoluteUrl(product.url),
       priceCurrency: product.currency || 'INR',
       price: product.price.toString(),
       availability: product.in_stock !== false 
@@ -202,13 +224,13 @@ export function getRelatedProducts(
 /**
  * Debounce function for search input
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
   let timeout: ReturnType<typeof setTimeout>;
   return (...args: Parameters<T>) => {
     clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(null, args), wait);
+    timeout = setTimeout(() => func(...args), wait);
   };
 }

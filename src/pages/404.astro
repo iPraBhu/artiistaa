@@ -7,6 +7,7 @@ import { generateSEO } from '@/utils/helpers';
 const seo = generateSEO({
   title: 'Page Not Found - 404',
   description: 'The page you are looking for could not be found.',
+  noindex: true,
 });
 ---
 
@@ -16,8 +17,8 @@ const seo = generateSEO({
       <div class="max-w-2xl mx-auto text-center">
         <!-- 404 Illustration -->
         <div class="mb-8">
-          <div class="text-8xl font-bold text-primary-200 dark:text-primary-800 mb-4">404</div>
-          <div class="w-32 h-32 mx-auto mb-6 text-neutral-300 dark:text-neutral-600">
+          <div class="text-8xl font-bold text-primary-200  mb-4">404</div>
+          <div class="w-32 h-32 mx-auto mb-6 text-neutral-300 ">
             <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
               <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
               <path d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-2 6h4v2h-4v-2z" fill="white"/>
@@ -26,11 +27,11 @@ const seo = generateSEO({
         </div>
         
         <!-- Error Message -->
-        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900  mb-4">
           Oops! Page Not Found
         </h1>
         
-        <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 max-w-md mx-auto">
+        <p class="text-lg text-neutral-600  mb-8 max-w-md mx-auto">
           The page you're looking for seems to have wandered off like a curious artisan. Let's get you back to exploring our beautiful collection.
         </p>
         
@@ -58,14 +59,14 @@ const seo = generateSEO({
         </div>
         
         <!-- Helpful Links -->
-        <div class="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
-          <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+        <div class="mt-12 pt-8 border-t border-neutral-200 ">
+          <p class="text-sm text-neutral-500  mb-4">
             Looking for something specific? Try these popular sections:
           </p>
           <div class="flex flex-wrap justify-center gap-4 text-sm">
             <a href="/category/festive-decor" class="text-primary-600 hover:text-primary-700 transition-colors">Festive Decor</a>
             <a href="/category/home-decor" class="text-primary-600 hover:text-primary-700 transition-colors">Home Decor</a>
-            <a href="/category/pottery-ceramics" class="text-primary-600 hover:text-primary-700 transition-colors">Pottery & Ceramics</a>
+            <a href="/category/pottery-and-ceramics" class="text-primary-600 hover:text-primary-700 transition-colors">Pottery & Ceramics</a>
             <a href="/about" class="text-primary-600 hover:text-primary-700 transition-colors">About Us</a>
             <a href="/contact" class="text-primary-600 hover:text-primary-700 transition-colors">Contact</a>
           </div>
@@ -73,7 +74,7 @@ const seo = generateSEO({
         
         <!-- Contact Support -->
         <div class="mt-8">
-          <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+          <p class="text-sm text-neutral-600  mb-4">
             Still can't find what you're looking for?
           </p>
           <a 
